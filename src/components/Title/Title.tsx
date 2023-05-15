@@ -1,3 +1,4 @@
+import type { Component } from 'solid-js'
 import styles from './Title.module.css'
 
 type Props = {
@@ -5,7 +6,7 @@ type Props = {
     tilted?: boolean
 }
 
-function Title(props: Props) {
+const Title: Component<Props> = (props) => {
     return (
         <h2 classList={{ [styles.tilted]: props.tilted }}>
             {props.text}

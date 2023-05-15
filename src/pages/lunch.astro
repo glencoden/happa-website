@@ -1,0 +1,21 @@
+---
+import Layout from '../layouts/Layout.astro'
+import Image from '../components/Image/Image.tsx'
+import Newsletter, { NewsletterColorScheme } from '../components/Newsletter/Newsletter'
+---
+
+<Layout>
+    <main>
+        <Newsletter colorScheme={NewsletterColorScheme.DARK} />
+
+        <Image />
+    </main>
+</Layout>
+
+<style>
+    main {
+        margin: auto;
+        padding: 1.5rem;
+        max-width: 60ch;
+    }
+</style>

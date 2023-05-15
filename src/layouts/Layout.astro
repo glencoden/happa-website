@@ -1,3 +1,7 @@
+---
+import Navigation from '../components/Navigation/Navigation.tsx'
+---
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -12,13 +16,17 @@
         <title>HAPPA</title>
     </head>
     <body>
+        <Navigation />
+
         <slot />
+
+        // footer
     </body>
 </html>
 
 <style is:global>
     :root {
-        /*add css variables*/
+        --transition-time-short: 0.2s;
     }
 
     html {
