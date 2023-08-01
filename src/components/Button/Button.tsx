@@ -1,4 +1,5 @@
-import type { Component } from 'solid-js'
+import type { ParentComponent } from 'solid-js'
+import styles from './Button.module.css'
 
 export enum ButtonSize {
     REGULAR = 'regular',
@@ -7,14 +8,18 @@ export enum ButtonSize {
 
 type Props = {
     size: ButtonSize
-    label: string
     active?: boolean
 }
 
-const Button: Component<Props> = ({ size, label, active }) => {
+const Button: ParentComponent<Props> = ({ children, size, active }) => {
     return (
-        <button>
-            {label}
+        <button classList={{
+            [styles.button]: true,
+            [styles.buttonActive]: Boolean(active),
+            [styles.buttonRegular]: size === ButtonSize.REGULAR,
+            [styles.buttonLarge]: size === ButtonSize.LARGE,
+        }}>
+            {children}
         </button>
     )
 }

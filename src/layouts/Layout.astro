@@ -1,4 +1,5 @@
 ---
+import TopBar from '../components/TopBar/TopBar.tsx'
 import Navigation from '../components/Navigation/Navigation.tsx'
 ---
 
@@ -12,11 +13,12 @@ import Navigation from '../components/Navigation/Navigation.tsx'
             name="description"
             content="Happa Restaurant in Berlin Kreuzberg. Regional, seasonal, vegan, plant-based, low-waste. Lunch and dinner events."
         />
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="icon" type="image/svg+xml" href="/icons/favicon.png" />
         <title>HAPPA</title>
     </head>
     <body>
-        <Navigation />
+        <TopBar />
+        <Navigation currentPathname={Astro.url.pathname} />
 
         <main>
             <slot />
@@ -27,6 +29,17 @@ import Navigation from '../components/Navigation/Navigation.tsx'
 </html>
 
 <style is:global>
+    @font-face {
+        font-family: MonumentGrotesk;
+        src: url("/fonts/MonumentGrotesk-Regular.otf") format("opentype");
+    }
+
+    @font-face {
+        font-family: MonumentGrotesk;
+        font-weight: bold;
+        src: url("/fonts/MonumentGrotesk-Medium.otf") format("opentype");
+    }
+
     * {
         box-sizing: border-box;
     }
@@ -35,13 +48,24 @@ import Navigation from '../components/Navigation/Navigation.tsx'
         --white: #F6F6F6;
         --black: #000000;
         --grey: #B5B4B3;
-        --primary: #e0878c;
+        --primary-color: #E0878C;
+
+        --space-s: 12px;
+        --space-m: 42px;
+
+        --font-size-s: 14px;
+        --font-size-m: 20px;
+
+        --top-bar-height: 48px;
 
         --transition-time-short: 0.2s;
     }
 
     html {
-        font-family: system-ui, sans-serif;
+        font-family: MonumentGrotesk, system-ui, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+
         color: var(--black);
         background-color: var(--white);
     }
@@ -54,6 +78,11 @@ import Navigation from '../components/Navigation/Navigation.tsx'
     main {
         margin: auto;
         width: 90vw;
+    }
+
+    a {
+        text-decoration: none;
+        color: inherit;
     }
 
     @media only screen and (min-width: 601px) {}

@@ -1,0 +1,14 @@
+.topBar {
+    display: flex;
+    justify-content: space-between;
+
+    width: 100vw;
+    height: var(--top-bar-height);
+
+    font-size: var(--font-size-s);
+    background-color: var(--primary-color);
+}
+
+.topBar > p {
+    margin: auto var(--space-m);
+}

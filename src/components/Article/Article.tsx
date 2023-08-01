@@ -48,8 +48,8 @@ const Article: Component<Props> = ({
                 <div class={styles.imageBox}>
                     <Image
                         imageUrl={imageUrl!}
-                        width={933}
-                        height={700}
+                        // width={933}
+                        // height={700}
                     />
                 </div>
             </Show>
@@ -127,10 +127,9 @@ const Article: Component<Props> = ({
 
                 <Show when={linkText !== undefined && linkUrl !== undefined}>
                     <Link linkUrl={linkUrl!}>
-                        <Button
-                            size={ButtonSize.LARGE}
-                            label={linkText!}
-                        />
+                        <Button size={ButtonSize.LARGE}>
+                            {linkText!}
+                        </Button>
                     </Link>
                 </Show>
             </div>
