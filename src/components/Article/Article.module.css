@@ -1,0 +1,55 @@
+.article {
+    border: 1px solid deeppink;
+
+    display: grid;
+    grid-template-rows: auto;
+}
+
+.articleDefault {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+        "image title"
+        "image content";
+}
+
+.articleDefaultReverse {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+        "title image"
+        "content image";
+}
+
+.articleCard, .articleBanner {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+        "image"
+        "title"
+        "content";
+}
+
+.imageBox {
+    grid-area: image;
+}
+
+.titleBox {
+    grid-area: title;
+}
+
+.contentBox {
+    grid-area: content;
+}
+
+@media only screen and (min-width: 601px) {}
+
+@media only screen and (min-width: 901px) {
+    .articleBanner {
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-areas:
+        "title image image"
+        "content content content";
+    }
+}
+
+@media only screen and (min-width: 1201px) {}
+
+@media only screen and (min-width: 1537px) {}

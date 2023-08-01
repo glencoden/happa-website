@@ -1,4 +1,4 @@
-import type { ParentComponent } from 'solid-js'
+import type { Component } from 'solid-js'
 
 export enum ButtonSize {
     REGULAR = 'regular',
@@ -7,13 +7,14 @@ export enum ButtonSize {
 
 type Props = {
     size: ButtonSize
+    label: string
     active?: boolean
 }
 
-const Button: ParentComponent<Props> = (props) => {
+const Button: Component<Props> = ({ size, label, active }) => {
     return (
         <button>
-            {props.children}
+            {label}
         </button>
     )
 }

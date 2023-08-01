@@ -1,18 +1,18 @@
 ---
 import Layout from '../layouts/Layout.astro'
-import Title from '../components/Title/Title.tsx'
+import Article, { ArticleType } from '../components/Article/Article'
 ---
 
 <Layout>
-    <main>
-        <Title text="glen was here" />
-    </main>
+    <Article
+        type={ArticleType.Banner}
+        title="Plant-based seasonal organic"
+        subtitle="Hier steht ein kurzer Abriss über Happa und wofür ihr steht."
+        content="Happa ist gesunde, ausgewohgene Regionalküche. Weder deftig, noch die nächste clean-eating Bar. Es gibt bei uns das Beste aus beiden Welten."
+        imageUrl="https://cdn.sanity.io/images/hwz0ma01/production/63bbc068102b139782e8d83b08903acca4871318-1600x1200.jpg"
+    />
 </Layout>
 
 <style>
-    main {
-        margin: auto;
-        padding: 1.5rem;
-        max-width: 60ch;
-    }
+    /* add some styles here */
 </style>

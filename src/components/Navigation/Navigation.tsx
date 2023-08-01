@@ -4,23 +4,26 @@ import Button, { ButtonSize } from '../Button/Button'
 const Navigation: Component<void> = () => {
     return (
         <div>
-            <Button size={ButtonSize.REGULAR}>
                 <a href="/">
-                    home
+                    <Button
+                        size={ButtonSize.REGULAR}
+                        label="home"
+                    />
                 </a>
-            </Button>
 
-            <Button size={ButtonSize.REGULAR}>
                 <a href="/about">
-                    about
+                    <Button
+                        size={ButtonSize.REGULAR}
+                        label="about"
+                    />
                 </a>
-            </Button>
 
-            <Button size={ButtonSize.REGULAR}>
                 <a href="/lunch">
-                    lunch
+                    <Button
+                        size={ButtonSize.REGULAR}
+                        label="lunch"
+                    />
                 </a>
-            </Button>
         </div>
     )
 }
