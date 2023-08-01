@@ -5,12 +5,14 @@ type Props = {
     imageUrl: string,
     width?: number,
     height?: number
+    className?: string
 }
 
 const Image: Component<Props> = ({
     imageUrl,
     width,
     height,
+    className,
 }) => {
     let imageStyle: { [key: string]: string | number } = {}
 
@@ -24,7 +26,7 @@ const Image: Component<Props> = ({
 
     return (
         <img
-            class={styles.image}
+            class={className ? `${styles.image} ${className}` : styles.image}
             style={imageStyle}
             src={imageUrl}
             alt={imageUrl}

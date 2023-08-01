@@ -2,8 +2,9 @@ import type { ParentComponent } from 'solid-js'
 import styles from './Button.module.css'
 
 export enum ButtonSize {
-    REGULAR = 'regular',
-    LARGE = 'large'
+    Small = 'small',
+    Regular = 'regular',
+    Large = 'large'
 }
 
 type Props = {
@@ -16,8 +17,9 @@ const Button: ParentComponent<Props> = ({ children, size, active }) => {
         <button classList={{
             [styles.button]: true,
             [styles.buttonActive]: Boolean(active),
-            [styles.buttonRegular]: size === ButtonSize.REGULAR,
-            [styles.buttonLarge]: size === ButtonSize.LARGE,
+            [styles.buttonSmall]: size === ButtonSize.Small,
+            [styles.buttonRegular]: size === ButtonSize.Regular,
+            [styles.buttonLarge]: size === ButtonSize.Large,
         }}>
             {children}
         </button>

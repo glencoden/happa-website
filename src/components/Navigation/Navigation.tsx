@@ -11,19 +11,21 @@ type Props = {
 const Navigation: Component<Props> = ({ currentPathname }) => {
     return (
         <div class={styles.navigation}>
-            <a href="/">
-                <Button size={ButtonSize.REGULAR}>
-                    <Image
-                        imageUrl="/icons/logo.svg"
-                        width={180}
-                    />
-                </Button>
-            </a>
+            <div class={styles.logoBox}>
+                <a href="/">
+                    <Button size={ButtonSize.Regular}>
+                        <Image
+                            imageUrl="/icons/logo.svg"
+                            className={styles.logo}
+                        />
+                    </Button>
+                </a>
+            </div>
 
             <div class={styles.navItemsBox}>
                 <a href="/about">
                     <Button
-                        size={ButtonSize.REGULAR}
+                        size={ButtonSize.Regular}
                         active={currentPathname === '/about' || currentPathname === '/about/'}
                     >
                         Über uns
@@ -32,7 +34,7 @@ const Navigation: Component<Props> = ({ currentPathname }) => {
 
                 <a href="/lunch">
                     <Button
-                        size={ButtonSize.REGULAR}
+                        size={ButtonSize.Regular}
                         active={currentPathname === '/lunch' || currentPathname === '/lunch/'}
                     >
                         Mittag
@@ -41,7 +43,7 @@ const Navigation: Component<Props> = ({ currentPathname }) => {
 
                 <a href="/dinner">
                     <Button
-                        size={ButtonSize.REGULAR}
+                        size={ButtonSize.Regular}
                         active={currentPathname === '/dinner' || currentPathname === '/dinner/'}
                     >
                         Dinner
@@ -50,39 +52,35 @@ const Navigation: Component<Props> = ({ currentPathname }) => {
 
                 <a href="/events">
                     <Button
-                        size={ButtonSize.REGULAR}
+                        size={ButtonSize.Regular}
                         active={currentPathname === '/events' || currentPathname === '/events/'}
                     >
                         Events
                     </Button>
                 </a>
 
-                <a href="/booking">
+                <a href="/voucher">
                     <Button
-                        size={ButtonSize.REGULAR}
-                        active={currentPathname === '/booking' || currentPathname === '/booking/'}
+                        size={ButtonSize.Regular}
+                        active={currentPathname === '/voucher' || currentPathname === '/voucher/'}
                     >
-                        Private Booking
+                        Gutscheine
                     </Button>
                 </a>
 
                 <a href="/partner">
                     <Button
-                        size={ButtonSize.REGULAR}
+                        size={ButtonSize.Regular}
                         active={currentPathname === '/partner' || currentPathname === '/partner/'}
                     >
                         Partner
                     </Button>
                 </a>
-
-                <Button size={ButtonSize.REGULAR}>
-                    English
-                </Button>
             </div>
 
             <div class={styles.socialIconsBox}>
                 <Link linkUrl="https://www.instagram.com/happa_restaurant">
-                    <Button size={ButtonSize.REGULAR}>
+                    <Button size={ButtonSize.Small}>
                         <Image
                             imageUrl="/icons/insta.svg"
                             width={18}
@@ -91,13 +89,17 @@ const Navigation: Component<Props> = ({ currentPathname }) => {
                 </Link>
 
                 <Link linkUrl="https://www.facebook.com/happaberlin">
-                    <Button size={ButtonSize.REGULAR}>
+                    <Button size={ButtonSize.Small}>
                         <Image
                             imageUrl="/icons/facebook.svg"
                             width={18}
                         />
                     </Button>
                 </Link>
+
+                <Button size={ButtonSize.Small}>
+                    EN
+                </Button>
             </div>
         </div>
     )

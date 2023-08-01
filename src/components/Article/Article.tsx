@@ -127,7 +127,7 @@ const Article: Component<Props> = ({
 
                 <Show when={linkText !== undefined && linkUrl !== undefined}>
                     <Link linkUrl={linkUrl!}>
-                        <Button size={ButtonSize.LARGE}>
+                        <Button size={ButtonSize.Large}>
                             {linkText!}
                         </Button>
                     </Link>

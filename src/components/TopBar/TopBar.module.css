@@ -10,5 +10,7 @@
 }
 
 .topBar > p {
-    margin: auto var(--space-m);
+    white-space: nowrap;
+    margin: auto var(--page-content-padding);
+    color: var(--white);
 }

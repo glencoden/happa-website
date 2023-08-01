@@ -1,6 +1,4 @@
 .article {
-    border: 1px solid deeppink;
-
     display: grid;
     grid-template-rows: auto;
 }
@@ -41,7 +39,9 @@
 
 @media only screen and (min-width: 601px) {}
 
-@media only screen and (min-width: 901px) {
+@media only screen and (min-width: 901px) {}
+
+@media only screen and (min-width: 1201px) {
     .articleBanner {
         grid-template-columns: 1fr 1fr 1fr;
         grid-template-areas:
@@ -50,6 +50,4 @@
     }
 }
 
-@media only screen and (min-width: 1201px) {}
-
-@media only screen and (min-width: 1537px) {}
+@media only screen and (min-width: 1681px) {}

@@ -50,15 +50,19 @@ import Navigation from '../components/Navigation/Navigation.tsx'
         --grey: #B5B4B3;
         --primary-color: #E0878C;
 
+        --space-xs: 10px;
         --space-s: 12px;
         --space-m: 42px;
 
-        --font-size-s: 14px;
+        --transition-time-short: 0.2s;
+
+        /* Screen size responsive values */
+
+        --font-size-s: 11px;
         --font-size-m: 20px;
 
-        --top-bar-height: 48px;
-
-        --transition-time-short: 0.2s;
+        --top-bar-height: 26px;
+        --page-content-padding: var(--space-xs);
     }
 
     html {
@@ -76,8 +80,7 @@ import Navigation from '../components/Navigation/Navigation.tsx'
     }
 
     main {
-        margin: auto;
-        width: 90vw;
+        margin: 0 var(--page-content-padding);
     }
 
     a {
@@ -86,7 +89,22 @@ import Navigation from '../components/Navigation/Navigation.tsx'
     }
 
     @media only screen and (min-width: 601px) {}
+
     @media only screen and (min-width: 901px) {}
-    @media only screen and (min-width: 1201px) {}
-    @media only screen and (min-width: 1537px) {}
+
+    @media only screen and (min-width: 1201px) {
+        :root {
+            --font-size-s: 15px;
+            --font-size-m: 20px;
+
+            --top-bar-height: 50px;
+            --page-content-padding: var(--space-m);
+        }
+    }
+
+    @media only screen and (min-width: 1681px) {
+        :root {
+            --page-content-padding: calc((100vw - 1680px) / 2 + var(--space-m));
+        }
+    }
 </style>

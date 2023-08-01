@@ -1,22 +1,60 @@
 .navigation {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
 
     height: var(--top-bar-height);
-    padding: 0 var(--space-m);
+    padding: 0 var(--page-content-padding);
     margin-bottom: calc(2 * var(--space-m));
+}
+
+.logoBox {
+    height: var(--top-bar-height);
+    margin-left: -5px; /* Fix for an unwanted left margin in the svg */
+}
+
+.logo {
+    width: 131px;
 }
 
 .navItemsBox {
     align-self: end;
+
+    position: fixed;
+    right: var(--page-content-padding);
+    top: -100%;
 
     display: flex;
     gap: var(--space-m);
 }
 
 .socialIconsBox {
+    justify-self: end;
     align-self: end;
+
+    position: fixed;
+    right: var(--page-content-padding);
+    bottom: -100%;
 
     display: flex;
     gap: var(--space-s);
 }
+
+@media only screen and (min-width: 601px) {
+    .logo {
+        width: 180px;
+    }
+}
+
+@media only screen and (min-width: 901px) {
+    .navItemsBox {
+        position: static;
+    }
+
+    .socialIconsBox {
+        position: static;
+    }
+}
+
+@media only screen and (min-width: 1201px) {}
+
+@media only screen and (min-width: 1681px) {}
