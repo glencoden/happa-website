@@ -1,4 +1,5 @@
 import type { Component } from 'solid-js'
+import Burger from '../Burger/Burger'
 import Button, { ButtonSize } from '../Button/Button'
 import Image from '../Image/Image'
 import Link from '../Link/Link'
@@ -20,6 +21,10 @@ const Navigation: Component<Props> = ({ currentPathname }) => {
                         />
                     </Button>
                 </a>
+            </div>
+
+            <div class={styles.burgerBox}>
+                <Burger isOpen={false} />
             </div>
 
             <div class={styles.navItemsBox}>
