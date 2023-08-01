@@ -1,6 +1,7 @@
 ---
 import TopBar from '../components/TopBar/TopBar.tsx'
 import Navigation from '../components/Navigation/Navigation.tsx'
+import Footer from '../components/Footer/Footer.tsx'
 ---
 
 <!DOCTYPE html>
@@ -24,7 +25,7 @@ import Navigation from '../components/Navigation/Navigation.tsx'
             <slot />
         </main>
 
-        // footer
+        <Footer />
     </body>
 </html>
 
@@ -103,6 +104,7 @@ import Navigation from '../components/Navigation/Navigation.tsx'
         --font-size-m: 20px;
 
         --top-bar-height: 26px;
+        --footer-height: 220px;
         --page-content-padding: var(--space-xs);
     }
 
