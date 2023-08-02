@@ -27,7 +27,7 @@ const Navigation: Component<Props> = ({ currentPathname }) => {
                 [styles.logoBox]: true,
                 [styles.invertColor]: $isMenuOpen(),
             }}>
-                <a href="/">
+                <a href={`${import.meta.env.PUBLIC_URL}/`}>
                     <Button size={ButtonSize.Regular}>
                         <Image
                             imageUrl={`${import.meta.env.PUBLIC_URL}/icons/logo.svg`}
@@ -54,10 +54,10 @@ const Navigation: Component<Props> = ({ currentPathname }) => {
                 [styles.showNavItemsBox]: $isMenuOpen(),
                 [styles.invertColor]: $isMenuOpen(),
             }}>
-                <a href="/about">
+                <a href={`${import.meta.env.PUBLIC_URL}/about`}>
                     <Button
                         size={ButtonSize.Regular}
-                        active={currentPathname === '/about' || currentPathname === '/about/'}
+                        active={currentPathname === `${import.meta.env.PUBLIC_URL}/about` || currentPathname === `${import.meta.env.PUBLIC_URL}/about/`}
                     >
                         <Text
                             en="About"
@@ -66,10 +66,10 @@ const Navigation: Component<Props> = ({ currentPathname }) => {
                     </Button>
                 </a>
 
-                <a href="/lunch">
+                <a href={`${import.meta.env.PUBLIC_URL}/lunch`}>
                     <Button
                         size={ButtonSize.Regular}
-                        active={currentPathname === '/lunch' || currentPathname === '/lunch/'}
+                        active={currentPathname === `${import.meta.env.PUBLIC_URL}/lunch` || currentPathname === `${import.meta.env.PUBLIC_URL}/lunch/`}
                     >
                         <Text
                             en="Lunch"
@@ -78,28 +78,28 @@ const Navigation: Component<Props> = ({ currentPathname }) => {
                     </Button>
                 </a>
 
-                <a href="/dinner">
+                <a href={`${import.meta.env.PUBLIC_URL}/dinner`}>
                     <Button
                         size={ButtonSize.Regular}
-                        active={currentPathname === '/dinner' || currentPathname === '/dinner/'}
+                        active={currentPathname === `${import.meta.env.PUBLIC_URL}/dinner` || currentPathname === `${import.meta.env.PUBLIC_URL}/dinner/`}
                     >
                         Dinner
                     </Button>
                 </a>
 
-                <a href="/events">
+                <a href={`${import.meta.env.PUBLIC_URL}/events`}>
                     <Button
                         size={ButtonSize.Regular}
-                        active={currentPathname === '/events' || currentPathname === '/events/'}
+                        active={currentPathname === `${import.meta.env.PUBLIC_URL}/events` || currentPathname === `${import.meta.env.PUBLIC_URL}/events/`}
                     >
                         Events
                     </Button>
                 </a>
 
-                <a href="/voucher">
+                <a href={`${import.meta.env.PUBLIC_URL}/voucher`}>
                     <Button
                         size={ButtonSize.Regular}
-                        active={currentPathname === '/voucher' || currentPathname === '/voucher/'}
+                        active={currentPathname === `${import.meta.env.PUBLIC_URL}/voucher` || currentPathname === `${import.meta.env.PUBLIC_URL}/voucher/`}
                     >
                         <Text
                             en="Vouchers"
@@ -108,10 +108,10 @@ const Navigation: Component<Props> = ({ currentPathname }) => {
                     </Button>
                 </a>
 
-                <a href="/partner">
+                <a href={`${import.meta.env.PUBLIC_URL}/partner`}>
                     <Button
                         size={ButtonSize.Regular}
-                        active={currentPathname === '/partner' || currentPathname === '/partner/'}
+                        active={currentPathname === `${import.meta.env.PUBLIC_URL}/partner` || currentPathname === `${import.meta.env.PUBLIC_URL}/partner/`}
                     >
                         <Text
                             en="Partners"

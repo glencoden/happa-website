@@ -19,10 +19,10 @@ const Footer: Component<Props> = ({ currentPathname }) => {
             />
 
             <div class={styles.footerNavigation}>
-                <a href="/press">
+                <a href={`${import.meta.env.PUBLIC_URL}/press`}>
                     <Button
                         size={ButtonSize.Regular}
-                        active={currentPathname === '/press' || currentPathname === '/press/'}
+                        active={currentPathname === `${import.meta.env.PUBLIC_URL}/press` || currentPathname === `${import.meta.env.PUBLIC_URL}/press/`}
                     >
                         <Text
                             en="Press"
@@ -31,10 +31,10 @@ const Footer: Component<Props> = ({ currentPathname }) => {
                     </Button>
                 </a>
 
-                <a href="/imprint">
+                <a href={`${import.meta.env.PUBLIC_URL}/imprint`}>
                     <Button
                         size={ButtonSize.Regular}
-                        active={currentPathname === '/imprint' || currentPathname === '/imprint/'}
+                        active={currentPathname === `${import.meta.env.PUBLIC_URL}/imprint` || currentPathname === `${import.meta.env.PUBLIC_URL}/imprint/`}
                     >
                         <Text
                             en="Imprint"
@@ -43,10 +43,10 @@ const Footer: Component<Props> = ({ currentPathname }) => {
                     </Button>
                 </a>
 
-                <a href="/data">
+                <a href={`${import.meta.env.PUBLIC_URL}/data`}>
                     <Button
                         size={ButtonSize.Regular}
-                        active={currentPathname === '/data' || currentPathname === '/data/'}
+                        active={currentPathname === `${import.meta.env.PUBLIC_URL}/data` || currentPathname === `${import.meta.env.PUBLIC_URL}/data/`}
                     >
                         <Text
                             en="Data&nbsp;protection"
