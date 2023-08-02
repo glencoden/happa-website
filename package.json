@@ -6,6 +6,8 @@
         "dev": "astro dev",
         "start": "astro dev",
         "build": "astro build",
+        "build:dev": "astro build --site \"https://glencoden.github.io\" --base \"/happa\"",
+        "build:prod": "astro build --site \"https://happa-berlin.com\"",
         "preview": "astro preview",
         "astro": "astro"
     },
