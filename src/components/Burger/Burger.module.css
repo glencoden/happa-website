@@ -16,6 +16,11 @@
     opacity: 1;
 }
 
+/* Fancy burger with half long patty */
+.burger span:nth-child(3) {
+    opacity: 0;
+}
+
 .burger span:nth-child(even) {
     left: 50%;
 }

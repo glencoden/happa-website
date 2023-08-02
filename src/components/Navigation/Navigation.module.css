@@ -1,13 +1,47 @@
 .navigation {
+    position: relative;
+
     display: grid;
     grid-template-columns: 1fr 1fr;
 
     height: var(--navigation-height);
     padding: 0 var(--page-content-padding);
     margin-bottom: var(--space-m);
+
+    z-index: 10;
+}
+
+.invertColor {
+    filter: invert(1);
+}
+
+.overlay {
+    position: fixed;
+    left: 0;
+    top: -100%;
+    width: 100vw;
+    height: 100dvh;
+    background-color: var(--primary-color);
+    opacity: 0;
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.showOverlay {
+    animation: fade-in var(--transition-time-long) forwards;
+    top: 0;
+    opacity: 1;
 }
 
 .logoBox {
+    position: relative;
     height: calc(2 * var(--top-bar-height));
     margin-left: -3px; /* Fix for an unwanted left margin in the svg */
 }
@@ -26,11 +60,17 @@
     align-self: center;
 
     position: fixed;
-    right: var(--page-content-padding);
+    left: 50%;
     top: -100%;
+    transform: translateX(-50%);
 
     display: flex;
+    flex-direction: column;
     gap: var(--space-m);
+}
+
+.showNavItemsBox {
+    top: 35vw;
 }
 
 .socialIconsBox {
@@ -38,11 +78,16 @@
     align-self: center;
 
     position: fixed;
-    right: var(--page-content-padding);
+    left: 50%;
     bottom: -100%;
+    transform: translateX(-50%);
 
     display: flex;
     gap: var(--space-s);
+}
+
+.showSocialIconsBox {
+    bottom: 30vw;
 }
 
 @media only screen and (min-width: 601px) {
@@ -66,6 +111,7 @@
 
     .navItemsBox {
         position: static;
+        flex-direction: row;
     }
 
     .socialIconsBox {

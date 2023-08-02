@@ -49,7 +49,7 @@ const Footer: Component<Props> = ({ currentPathname }) => {
                         active={currentPathname === '/data' || currentPathname === '/data/'}
                     >
                         <Text
-                            en="Data protection"
+                            en="Data&nbsp;protection"
                             de="Datenschutz"
                         />
                     </Button>

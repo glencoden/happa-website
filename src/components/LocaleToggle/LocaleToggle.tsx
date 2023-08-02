@@ -5,6 +5,19 @@ import Button, { ButtonSize } from '../Button/Button'
 import { useStore } from '@nanostores/solid'
 import { locale } from '../../store'
 
+// const getLocaleFromWindow = (): Locale => {
+//     const simpleCurrentLanguage = window.navigator.language?.slice(0, 2).toLowerCase()
+//
+//     switch (simpleCurrentLanguage) {
+//         case Locale.German:
+//             return Locale.German
+//         case Locale.English:
+//             return Locale.English
+//         default:
+//             return Locale.English
+//     }
+// }
+
 const LocaleToggle: Component = () => {
     const $locale = useStore(locale)
 

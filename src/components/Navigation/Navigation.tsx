@@ -6,15 +6,27 @@ import Link from '../Link/Link'
 import LocaleToggle from '../LocaleToggle/LocaleToggle'
 import Text from '../Text/Text'
 import styles from './Navigation.module.css'
+import { useStore } from '@nanostores/solid'
+import { isMenuOpen } from '../../store'
 
 type Props = {
     currentPathname: string
 }
 
 const Navigation: Component<Props> = ({ currentPathname }) => {
+    const $isMenuOpen = useStore(isMenuOpen)
+
     return (
         <div class={styles.navigation}>
-            <div class={styles.logoBox}>
+            <div classList={{
+                [styles.overlay]: true,
+                [styles.showOverlay]: $isMenuOpen(),
+            }} />
+
+            <div classList={{
+                [styles.logoBox]: true,
+                [styles.invertColor]: $isMenuOpen(),
+            }}>
                 <a href="/">
                     <Button size={ButtonSize.Regular}>
                         <Image
@@ -25,11 +37,23 @@ const Navigation: Component<Props> = ({ currentPathname }) => {
                 </a>
             </div>
 
-            <div class={styles.burgerBox}>
-                <Burger isOpen={false} />
+            <div classList={{
+                [styles.burgerBox]: true,
+                [styles.invertColor]: $isMenuOpen(),
+            }}>
+                <Button
+                    size={ButtonSize.Regular}
+                    onClick={() => isMenuOpen.set(!$isMenuOpen())}
+                >
+                    <Burger isOpen={$isMenuOpen()} />
+                </Button>
             </div>
 
-            <div class={styles.navItemsBox}>
+            <div classList={{
+                [styles.navItemsBox]: true,
+                [styles.showNavItemsBox]: $isMenuOpen(),
+                [styles.invertColor]: $isMenuOpen(),
+            }}>
                 <a href="/about">
                     <Button
                         size={ButtonSize.Regular}
@@ -97,7 +121,11 @@ const Navigation: Component<Props> = ({ currentPathname }) => {
                 </a>
             </div>
 
-            <div class={styles.socialIconsBox}>
+            <div classList={{
+                [styles.socialIconsBox]: true,
+                [styles.showSocialIconsBox]: $isMenuOpen(),
+                [styles.invertColor]: $isMenuOpen(),
+            }}>
                 <Link linkUrl="https://www.instagram.com/happa_restaurant">
                     <Button size={ButtonSize.Small}>
                         <Image
