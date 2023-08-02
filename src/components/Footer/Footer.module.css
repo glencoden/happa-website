@@ -1,13 +1,15 @@
 .footer {
-    border: 1px solid lime;
-
     position: absolute;
     left: 0;
     bottom: 0;
 
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    display: grid;
+    grid-template-columns: 1fr 1.5fr 1.5fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+        "smiley navigation certificate"
+        "newsletter newsletter newsletter";
+    gap: var(--space-m) var(--space-s);
 
     width: 100vw;
     height: var(--footer-height);
@@ -15,25 +17,59 @@
 }
 
 .smiley {
-    width: 130px;
+    grid-area: smiley;
+
+    width: 65px;
     margin: -5px; /* Fix for an unwanted margin in the svg */
 }
 
 .footerNavigation {
+    grid-area: navigation;
+
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 100%;
+    height: 80px;
 }
 
-@media only screen and (min-width: 601px) {}
+.newsletterBox {
+    grid-area: newsletter;
+}
 
-@media only screen and (min-width: 901px) {
+.certificateBox {
+    grid-area: certificate;
+}
+
+@media only screen and (min-width: 601px) {
     .smiley {
-        margin: -10px; /* Fix for an unwanted margin in the svg */
+        width: 130px;
+    }
+
+    .footerNavigation {
+        height: 130px;
     }
 }
 
-@media only screen and (min-width: 1201px) {}
+@media only screen and (min-width: 901px) {
+    .footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .smiley {
+        margin: -10px; /* Fix for an unwanted margin in the svg */
+    }
+
+    .newsletterBox {
+        width: 50vw;
+    }
+}
+
+@media only screen and (min-width: 1201px) {
+    .footer {
+        gap: var(--space-m)
+    }
+}
 
 @media only screen and (min-width: 1681px) {}

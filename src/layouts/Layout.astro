@@ -18,8 +18,10 @@ import Footer from '../components/Footer/Footer.tsx'
         <title>HAPPA</title>
     </head>
     <body>
-        <TopBar />
-        <Navigation currentPathname={Astro.url.pathname} />
+        <nav>
+            <TopBar />
+            <Navigation currentPathname={Astro.url.pathname} />
+        </nav>
 
         <main>
             <slot />
@@ -104,16 +106,25 @@ import Footer from '../components/Footer/Footer.tsx'
         /* Screen size responsive values */
 
         --font-size-s: 11px;
-        --font-size-m: 20px;
+        --font-size-m: 17px;
 
         --top-bar-height: 26px;
-        --footer-height: 220px;
+        --navigation-height: 40px;
+        --footer-height: 354px;
         --page-content-padding: var(--space-xs);
     }
 
-    @media only screen and (min-width: 601px) {}
+    @media only screen and (min-width: 601px) {
+        :root {
+            --footer-height: 418px;
+        }
+    }
 
-    @media only screen and (min-width: 901px) {}
+    @media only screen and (min-width: 901px) {
+        :root {
+            --footer-height: 260px;
+        }
+    }
 
     @media only screen and (min-width: 1201px) {
         :root {
@@ -121,6 +132,8 @@ import Footer from '../components/Footer/Footer.tsx'
             --font-size-m: 20px;
 
             --top-bar-height: 50px;
+            --navigation-height: 80px;
+            --footer-height: 220px;
             --page-content-padding: var(--space-m);
         }
     }

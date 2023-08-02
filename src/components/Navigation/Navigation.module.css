@@ -2,9 +2,9 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
 
-    height: var(--top-bar-height);
+    height: var(--navigation-height);
     padding: 0 var(--page-content-padding);
-    margin-bottom: calc(2 * var(--space-m));
+    margin-bottom: var(--space-m);
 }
 
 .logoBox {
@@ -23,7 +23,7 @@
 }
 
 .navItemsBox {
-    align-self: end;
+    align-self: center;
 
     position: fixed;
     right: var(--page-content-padding);
@@ -35,7 +35,7 @@
 
 .socialIconsBox {
     justify-self: end;
-    align-self: end;
+    align-self: center;
 
     position: fixed;
     right: var(--page-content-padding);

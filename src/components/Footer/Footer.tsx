@@ -46,9 +46,13 @@ const Footer: Component<Props> = ({ currentPathname }) => {
                 </a>
             </div>
 
-            <Newsletter colorScheme={NewsletterColorScheme.LIGHT} />
+            <div class={styles.newsletterBox}>
+                <Newsletter colorScheme={NewsletterColorScheme.LIGHT} />
+            </div>
 
-            <Certificate />
+            <div class={styles.certificateBox}>
+                <Certificate />
+            </div>
         </footer>
     )
 }

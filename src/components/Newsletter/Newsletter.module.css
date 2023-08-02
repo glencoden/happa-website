@@ -1,3 +1,63 @@
 .newsletter {
-    width: 54vw;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-s) var(--space-m);
+}
+
+.infoText {
+    flex-basis: 21%;
+    flex-grow: 0.9;
+    margin: 0;
+}
+
+.form {
+    flex-basis: max(432px, 70%);
+    flex-grow: 1;
+}
+
+.emailInput {
+    width: 100%;
+    font-family: inherit;
+    font-size: inherit;
+    padding: 0 var(--space-s);
+    margin-bottom: var(--space-s);
+}
+
+.submitButton {
+    float: right;
+    width: 40%;
+    border-radius: 29px;
+
+    /* Copy of button styles in Layout.astro */
+
+    cursor: pointer;
+    outline: none;
+    font-family: inherit;
+    font-size: inherit;
+    padding: 0;
+    margin: 0;
+    border: none;
+    color: inherit;
+    background-color: transparent;
+}
+
+.submitButton:hover {
+    opacity: 0.6;
+}
+
+.emailInput, .submitButton {
+    height: 34px;
+    border: 1px solid var(--black);
+}
+
+@media only screen and (min-width: 601px) {
+    .emailInput, .submitButton {
+        height: 58px;
+    }
+}
+
+@media only screen and (min-width: 1201px) {
+    .newsletter {
+        gap: var(--space-m);
+    }
 }
