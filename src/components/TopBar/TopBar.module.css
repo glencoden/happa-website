@@ -1,6 +1,7 @@
 .topBar {
     display: flex;
     justify-content: space-between;
+    align-items: center;
 
     width: 100vw;
     height: var(--top-bar-height);
@@ -11,6 +12,6 @@
 
 .topBar > p {
     white-space: nowrap;
-    margin: auto var(--page-content-padding);
+    margin: 0 var(--page-content-padding);
     color: var(--white);
 }

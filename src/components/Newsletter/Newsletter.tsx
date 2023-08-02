@@ -1,4 +1,5 @@
 import type { Component } from 'solid-js'
+import styles from './Newsletter.module.css'
 
 export enum NewsletterColorScheme {
     LIGHT = 'light',
@@ -11,7 +12,10 @@ type Props = {
 
 const Newsletter: Component<Props> = (props) => {
     return (
-        <div id="mc_embed_signup">
+        <div
+            class={styles.newsletter}
+            id="mc_embed_signup"
+        >
             <form
                 action="https://instagram.us14.list-manage.com/subscribe/post?u=497cccd8ba1dbecabfde59671&amp;id=28ebbb706d"
                 method="post"
