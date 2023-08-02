@@ -11,7 +11,7 @@
 }
 
 .buttonActive {
-    color: var(--grey);
+    text-decoration: underline;
 }
 
 .buttonSmall {

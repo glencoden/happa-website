@@ -111,11 +111,13 @@
 
     .navItemsBox {
         position: static;
+        transform: translateX(0);
         flex-direction: row;
     }
 
     .socialIconsBox {
         position: static;
+        transform: translateX(0);
     }
 }
 

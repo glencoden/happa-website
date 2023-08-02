@@ -46,37 +46,36 @@ const Article: Component<Props> = ({
         >
             <Show when={imageUrl !== undefined}>
                 <div class={styles.imageBox}>
-                    <Image
-                        imageUrl={imageUrl!}
-                        // width={933}
-                        // height={700}
-                    />
+                    <Image imageUrl={imageUrl!} />
                 </div>
             </Show>
 
-            <div class={styles.titleBox}>
+            <div classList={{
+                [styles.titleBox]: true,
+                [styles.titleBoxBanner]: type === ArticleType.Banner,
+            }}>
                 <Show when={title !== undefined}>
                     <Switch fallback={null}>
                         <Match when={type === ArticleType.Default}>
-                            <h3>
+                            <h3 class={styles.title}>
                                 {title}
                             </h3>
                         </Match>
 
                         <Match when={type === ArticleType.DefaultReverse}>
-                            <h3>
+                            <h3 class={styles.title}>
                                 {title}
                             </h3>
                         </Match>
 
                         <Match when={type === ArticleType.Banner}>
-                            <h1>
+                            <h1 class={styles.title}>
                                 {title}
                             </h1>
                         </Match>
 
                         <Match when={type === ArticleType.Card}>
-                            <h4>
+                            <h4 class={styles.title}>
                                 {title}
                             </h4>
                         </Match>
@@ -92,25 +91,25 @@ const Article: Component<Props> = ({
                 <Show when={subtitle !== undefined}>
                     <Switch fallback={null}>
                         <Match when={type === ArticleType.Default}>
-                            <h4>
+                            <h4 class={styles.subtitle}>
                                 {subtitle}
                             </h4>
                         </Match>
 
                         <Match when={type === ArticleType.DefaultReverse}>
-                            <h4>
+                            <h4 class={styles.subtitle}>
                                 {subtitle}
                             </h4>
                         </Match>
 
                         <Match when={type === ArticleType.Banner}>
-                            <h2>
+                            <h2 class={styles.subtitle}>
                                 {subtitle}
                             </h2>
                         </Match>
 
                         <Match when={type === ArticleType.Card}>
-                            <p>
+                            <p class={styles.subtitle}>
                                 {subtitle}
                             </p>
                         </Match>
@@ -118,7 +117,10 @@ const Article: Component<Props> = ({
                 </Show>
             </div>
 
-            <div class={styles.contentBox}>
+            <div classList={{
+                [styles.contentBox]: true,
+                [styles.contentBoxBanner]: type === ArticleType.Banner,
+            }}>
                 <Show when={content !== undefined}>
                     <p>
                         {content}

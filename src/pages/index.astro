@@ -1,16 +1,42 @@
 ---
+import { Locale } from '../enums/Locale'
 import Layout from '../layouts/Layout.astro'
-import Article, { ArticleType } from '../components/Article/Article'
+import ArticleBanner from '../components/ArticleBanner/ArticleBanner'
 ---
 
 <Layout>
-    <Article
-        type={ArticleType.Banner}
-        title="Plant-based seasonal organic"
-        subtitle="Hier steht ein kurzer Abriss über Happa und wofür ihr steht."
-        content="Happa ist gesunde, ausgewohgene Regionalküche. Weder deftig, noch die nächste clean-eating Bar. Es gibt bei uns das Beste aus beiden Welten."
+    <ArticleBanner
+        client:idle
+        title={{
+            [Locale.English]: "Plant-based seasonal organic",
+            [Locale.German]: "Pflanzlich, saisonal, bio"
+        }}
+        subtitle={{
+            [Locale.English]: "Here is a brief outline about Happa and what you stand for.",
+            [Locale.German]: "Hier steht ein kurzer Abriss über Happa und wofür ihr steht."
+        }}
+        content={{
+            [Locale.English]: "Happa is healthy, balanced regional cuisine. Neither hearty, nor the next clean eating bar, we have the best of both worlds. We cook delicious food in a modern presentation. There's sure to be something for you, too.",
+            [Locale.German]: "Happa ist gesunde, ausgewogene Regionalküche. Weder deftig, noch die nächste Clean Eating Bar, gibt es bei uns das Beste aus beiden Welten. Wir kochen leckeres Essen in moderner Aufmachung. Bestimmt ist auch für dich etwas dabei."
+        }}
         imageUrl="https://cdn.sanity.io/images/hwz0ma01/production/63bbc068102b139782e8d83b08903acca4871318-1600x1200.jpg"
     />
+
+    <!--<Article-->
+    <!--    type={ArticleType.Default}-->
+    <!--    title="Mittagstisch"-->
+    <!--    content="Täglich wechselnde Gerichte aus regionalen Zutaten, 100% biozertifiziert.  An Wochentagen bis aufgegessen wurde, aber maximal bis 15 Uhr."-->
+    <!--    linkText="Tagesmenü ansehen"-->
+    <!--    imageUrl="https://cdn.sanity.io/images/hwz0ma01/production/63bbc068102b139782e8d83b08903acca4871318-1600x1200.jpg"-->
+    <!--/>-->
+
+    <!--<Article-->
+    <!--    type={ArticleType.DefaultReverse}-->
+    <!--    title="Dinner-Events"-->
+    <!--    content="Themenabende mit einzigartigem Menü und passender Weinbegleitung.  Nur mit Reservierung. Im Newsletter halten wir euch am Laufenden."-->
+    <!--    linkText="Tickets buchen"-->
+    <!--    imageUrl="https://cdn.sanity.io/images/hwz0ma01/production/63bbc068102b139782e8d83b08903acca4871318-1600x1200.jpg"-->
+    <!--/>-->
 </Layout>
 
 <style>

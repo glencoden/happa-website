@@ -1,20 +1,22 @@
 .article {
     display: grid;
     grid-template-rows: auto;
+    gap: var(--space-l);
+    margin-bottom: var(--space-xl);
 }
 
 .articleDefault {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-areas:
-        "image title"
-        "image content";
+        "image image title ."
+        "image image content .";
 }
 
 .articleDefaultReverse {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-areas:
-        "title image"
-        "content image";
+        ". title image image"
+        ". content image image";
 }
 
 .articleCard, .articleBanner {
@@ -31,10 +33,37 @@
 
 .titleBox {
     grid-area: title;
+    align-self: end;
+}
+
+.titleBoxBanner {
+    margin-bottom: min(var(--space-m), var(--page-content-padding));
+}
+
+.title {
+    /* TODO buzz black font */
+    font-size: var(--font-size-l);
+    text-transform: uppercase;
+    padding: 0;
+    margin: 0 0 min(var(--space-m), var(--page-content-padding));
+}
+
+.subtitle {
+    font-size: var(--font-size-l);
+    font-weight: normal;
+    padding: 0;
+    margin: 0;
 }
 
 .contentBox {
     grid-area: content;
+    font-size: 28px;
+}
+
+.contentBoxBanner {
+    justify-self: center;
+    width: 780px;
+    margin-top: var(--space-xl);
 }
 
 @media only screen and (min-width: 601px) {}
