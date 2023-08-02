@@ -129,7 +129,7 @@ const Navigation: Component<Props> = ({ currentPathname }) => {
                 <Link linkUrl="https://www.instagram.com/happa_restaurant">
                     <Button size={ButtonSize.Small}>
                         <Image
-                            imageUrl="/icons/insta.svg"
+                            imageUrl={`${import.meta.env.PUBLIC_URL}/icons/insta.svg`}
                             width={18}
                         />
                     </Button>
@@ -138,7 +138,7 @@ const Navigation: Component<Props> = ({ currentPathname }) => {
                 <Link linkUrl="https://www.facebook.com/happaberlin">
                     <Button size={ButtonSize.Small}>
                         <Image
-                            imageUrl="/icons/facebook.svg"
+                            imageUrl={`${import.meta.env.PUBLIC_URL}/icons/facebook.svg`}
                             width={18}
                         />
                     </Button>

@@ -14,7 +14,7 @@ const Footer: Component<Props> = ({ currentPathname }) => {
     return (
         <footer class={styles.footer}>
             <Image
-                imageUrl="/icons/smiley.svg"
+                imageUrl={`${import.meta.env.PUBLIC_URL}/icons/smiley.svg`}
                 className={styles.smiley}
             />
 

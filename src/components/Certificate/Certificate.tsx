@@ -7,7 +7,7 @@ const Certificate: Component = () => {
     return (
         <form
             method="get"
-            action="/download/HAPPA_Restaurant_Zertifikat_2023-01.pdf"
+            action={`${import.meta.env.PUBLIC_URL}/download/HAPPA_Restaurant_Zertifikat_2023-01.pdf`}
             target='_blank'
             title="Download"
         >
@@ -16,7 +16,7 @@ const Certificate: Component = () => {
                 class={styles.downloadButton}
             >
                 <Image
-                    imageUrl="/icons/bio-certificate.svg"
+                    imageUrl={`${import.meta.env.PUBLIC_URL}/icons/bio-certificate.svg`}
                     className={styles.certificateIcon}
                 />
 
