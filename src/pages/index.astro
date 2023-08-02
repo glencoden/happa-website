@@ -27,8 +27,8 @@ import ArticleDefault from '../components/ArticleDefault/ArticleDefault'
         client:idle
         imageUrl="https://cdn.sanity.io/images/hwz0ma01/production/63bbc068102b139782e8d83b08903acca4871318-1600x1200.jpg"
         title={{
-            [Locale.English]: "Our philosophy",
-            [Locale.German]: "Unsere Philosophie"
+            [Locale.English]: "Lunch",
+            [Locale.German]: "Mittagstisch"
         }}
         date="2022-08-20T19:30:00.000Z"
         content={{
@@ -36,29 +36,29 @@ import ArticleDefault from '../components/ArticleDefault/ArticleDefault'
             [Locale.German]: "Wir kochen mit saisonalen, regionalen und bio-zertifizierten Zutaten. Wir verwenden keine tierischen Produkte, keinen raffinierten Zucker und keine Zusatzstoffe. Wir kochen mit Liebe und Leidenschaft. Wir sind ein Team aus Köchen, Ernährungswissenschaftlern und Food-Lovern. Wir sind Happa."
         }}
         linkText={{
-            [Locale.English]: "See repo",
-            [Locale.German]: "Repo ansehen"
+            [Locale.English]: "See lunch menu",
+            [Locale.German]: "Tagesmenü ansehen"
         }}
         linkUrl="https://github.com/glencoden/happa-website"
     />
 
-    <!--<Article-->
-    <!--    type={ArticleType.Default}-->
-    <!--    title="Mittagstisch"-->
-    <!--    content="Täglich wechselnde Gerichte aus regionalen Zutaten, 100% biozertifiziert.  An Wochentagen bis aufgegessen wurde, aber maximal bis 15 Uhr."-->
-    <!--    linkText="Tagesmenü ansehen"-->
-    <!--    imageUrl="https://cdn.sanity.io/images/hwz0ma01/production/63bbc068102b139782e8d83b08903acca4871318-1600x1200.jpg"-->
-    <!--/>-->
-
-    <!--<Article-->
-    <!--    type={ArticleType.DefaultReverse}-->
-    <!--    title="Dinner-Events"-->
-    <!--    content="Themenabende mit einzigartigem Menü und passender Weinbegleitung.  Nur mit Reservierung. Im Newsletter halten wir euch am Laufenden."-->
-    <!--    linkText="Tickets buchen"-->
-    <!--    imageUrl="https://cdn.sanity.io/images/hwz0ma01/production/63bbc068102b139782e8d83b08903acca4871318-1600x1200.jpg"-->
-    <!--/>-->
+    <ArticleDefault
+        client:idle
+        imageUrl="https://cdn.sanity.io/images/hwz0ma01/production/63bbc068102b139782e8d83b08903acca4871318-1600x1200.jpg"
+        title={{
+            [Locale.English]: "Dinner events",
+            [Locale.German]: "Dinner-Events"
+        }}
+        date="2022-08-20T19:30:00.000Z"
+        content={{
+            [Locale.English]: "Theme evenings with unique menu and matching wine accompaniment.  Only with reservation. In the newsletter we keep you up to date.",
+            [Locale.German]: "Themenabende mit einzigartigem Menü und passender Weinbegleitung.  Nur mit Reservierung. Im Newsletter halten wir euch am Laufenden."
+        }}
+        linkText={{
+            [Locale.English]: "Book tickets",
+            [Locale.German]: "Tickets buchen"
+        }}
+        linkUrl="https://github.com/glencoden/happa-website"
+        reverse={true}
+    />
 </Layout>
-
-<style>
-    /* add some styles here */
-</style>

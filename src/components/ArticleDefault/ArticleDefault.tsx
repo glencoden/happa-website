@@ -19,13 +19,19 @@ type Props = {
 
 const ArticleDefault: Component<Props> = (props) => {
     return (
-        <div class={styles.article}>
+        <div classList={{
+            [styles.article]: true,
+            [styles.articleReverse]: Boolean(props.reverse),
+        }}>
             <Image
                 className={styles.image}
                 imageUrl={props.imageUrl}
             />
 
-            <div class={styles.textBox}>
+            <div classList={{
+                [styles.textBox]: true,
+                [styles.textBoxReverse]: Boolean(props.reverse),
+            }}>
                 <h3 class={styles.title}>
                     <Text en={props.title.english} de={props.title.german} />
                 </h3>
@@ -33,7 +39,7 @@ const ArticleDefault: Component<Props> = (props) => {
                 <Show when={props.date !== undefined}>
                     {/* TODO generate text below from date string prop */}
                     <time
-                        class={styles.subtitle}
+                        class={styles.date}
                         datetime={props.date}
                     >
                         <Text
