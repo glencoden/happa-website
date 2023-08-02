@@ -30,7 +30,7 @@ const Navigation: Component<Props> = ({ currentPathname }) => {
                 <a href="/">
                     <Button size={ButtonSize.Regular}>
                         <Image
-                            imageUrl="/icons/logo.svg"
+                            imageUrl={`${import.meta.env.PUBLIC_URL}/icons/logo.svg`}
                             className={styles.logo}
                         />
                     </Button>

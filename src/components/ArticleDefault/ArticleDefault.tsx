@@ -1,9 +1,11 @@
-import { Show } from 'solid-js'
 import type { Component } from 'solid-js'
+import { Show } from 'solid-js'
 import type { LocalizedString } from '../../types/LocalizedString'
-import styles from './ArticleDefault.module.css'
+import Button, { ButtonSize } from '../Button/Button'
 import Image from '../Image/Image'
+import Link from '../Link/Link'
 import Text from '../Text/Text'
+import styles from './ArticleDefault.module.css'
 
 type Props = {
     imageUrl: string
@@ -45,6 +47,14 @@ const ArticleDefault: Component<Props> = (props) => {
                     <p class={styles.content}>
                         <Text en={props.content!.english} de={props.content!.german} />
                     </p>
+                </Show>
+
+                <Show when={props.linkText !== undefined && props.linkUrl !== undefined}>
+                    <Link linkUrl={props.linkUrl!}>
+                        <Button size={ButtonSize.Large}>
+                            <Text en={props.linkText!.english} de={props.linkText!.german} />
+                        </Button>
+                    </Link>
                 </Show>
             </div>
         </div>
