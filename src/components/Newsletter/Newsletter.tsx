@@ -10,7 +10,7 @@ type Props = {
     colorScheme: NewsletterColorScheme
 }
 
-const Newsletter: Component<Props> = (props) => {
+const Newsletter: Component<Props> = ({ colorScheme }) => {
     return (
         <div class={styles.newsletter}>
             <p class={styles.infoText}>

@@ -1,9 +1,14 @@
 ---
 import Layout from '../layouts/Layout.astro'
+import Text from '../components/Text/Text'
 ---
 
 <Layout>
-    about page
+    <Text
+        client:load
+        en="This is the about page"
+        de="Das ist die Über-Seite"
+    />
 </Layout>
 
 <style>

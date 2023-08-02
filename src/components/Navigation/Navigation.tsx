@@ -3,6 +3,7 @@ import Burger from '../Burger/Burger'
 import Button, { ButtonSize } from '../Button/Button'
 import Image from '../Image/Image'
 import Link from '../Link/Link'
+import LocaleToggle from '../LocaleToggle/LocaleToggle'
 import styles from './Navigation.module.css'
 
 type Props = {
@@ -102,9 +103,7 @@ const Navigation: Component<Props> = ({ currentPathname }) => {
                     </Button>
                 </Link>
 
-                <Button size={ButtonSize.Small}>
-                    EN
-                </Button>
+                <LocaleToggle />
             </div>
         </div>
     )
