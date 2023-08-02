@@ -2,6 +2,7 @@
 import { Locale } from '../enums/Locale'
 import Layout from '../layouts/Layout.astro'
 import ArticleBanner from '../components/ArticleBanner/ArticleBanner'
+import ArticleDefault from '../components/ArticleDefault/ArticleDefault'
 ---
 
 <Layout>
@@ -20,6 +21,25 @@ import ArticleBanner from '../components/ArticleBanner/ArticleBanner'
             [Locale.German]: "Happa ist gesunde, ausgewogene Regionalküche. Weder deftig, noch die nächste Clean Eating Bar, gibt es bei uns das Beste aus beiden Welten. Wir kochen leckeres Essen in moderner Aufmachung. Bestimmt ist auch für dich etwas dabei."
         }}
         imageUrl="https://cdn.sanity.io/images/hwz0ma01/production/63bbc068102b139782e8d83b08903acca4871318-1600x1200.jpg"
+    />
+
+    <ArticleDefault
+        client:idle
+        imageUrl="https://cdn.sanity.io/images/hwz0ma01/production/63bbc068102b139782e8d83b08903acca4871318-1600x1200.jpg"
+        title={{
+            [Locale.English]: "Our philosophy",
+            [Locale.German]: "Unsere Philosophie"
+        }}
+        date="2022-08-20T19:30:00.000Z"
+        content={{
+            [Locale.English]: "We cook with seasonal, regional and organic ingredients. We use no animal products, no refined sugar and no additives. We cook with love and passion. We are a team of chefs, nutritionists and food lovers. We are Happa.",
+            [Locale.German]: "Wir kochen mit saisonalen, regionalen und bio-zertifizierten Zutaten. Wir verwenden keine tierischen Produkte, keinen raffinierten Zucker und keine Zusatzstoffe. Wir kochen mit Liebe und Leidenschaft. Wir sind ein Team aus Köchen, Ernährungswissenschaftlern und Food-Lovern. Wir sind Happa."
+        }}
+        linkText={{
+            [Locale.English]: "See repo",
+            [Locale.German]: "Repo ansehen"
+        }}
+        linkUrl="https://github.com/glencoden/happa-website"
     />
 
     <!--<Article-->
