@@ -3,6 +3,7 @@ import Button, { ButtonSize } from '../Button/Button'
 import Certificate from '../Certificate/Certificate'
 import Image from '../Image/Image'
 import Newsletter, { NewsletterColorScheme } from '../Newsletter/Newsletter'
+import Text from '../Text/Text'
 import styles from './Footer.module.css'
 
 type Props = {
@@ -23,7 +24,10 @@ const Footer: Component<Props> = ({ currentPathname }) => {
                         size={ButtonSize.Regular}
                         active={currentPathname === '/press' || currentPathname === '/press/'}
                     >
-                        Presse
+                        <Text
+                            en="Press"
+                            de="Presse"
+                        />
                     </Button>
                 </a>
 
@@ -32,7 +36,10 @@ const Footer: Component<Props> = ({ currentPathname }) => {
                         size={ButtonSize.Regular}
                         active={currentPathname === '/imprint' || currentPathname === '/imprint/'}
                     >
-                        Impressum
+                        <Text
+                            en="Imprint"
+                            de="Impressum"
+                        />
                     </Button>
                 </a>
 
@@ -41,7 +48,10 @@ const Footer: Component<Props> = ({ currentPathname }) => {
                         size={ButtonSize.Regular}
                         active={currentPathname === '/data' || currentPathname === '/data/'}
                     >
-                        Datenschutz
+                        <Text
+                            en="Data protection"
+                            de="Datenschutz"
+                        />
                     </Button>
                 </a>
             </div>

@@ -33,9 +33,11 @@ import Footer from '../components/Footer/Footer.tsx'
     </head>
     <body>
         <nav>
-            <TopBar />
+            <TopBar
+                client:idle
+            />
             <Navigation
-                client:load
+                client:idle
                 currentPathname={Astro.url.pathname}
             />
         </nav>
@@ -44,7 +46,10 @@ import Footer from '../components/Footer/Footer.tsx'
             <slot />
         </main>
 
-        <Footer currentPathname={Astro.url.pathname} />
+        <Footer
+            client:visible
+            currentPathname={Astro.url.pathname}
+        />
     </body>
 </html>
 

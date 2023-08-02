@@ -1,5 +1,6 @@
 import type { Component } from 'solid-js'
 import Image from '../Image/Image'
+import Text from '../Text/Text'
 import styles from './Certificate.module.css'
 
 const Certificate: Component = () => {
@@ -8,7 +9,7 @@ const Certificate: Component = () => {
             method="get"
             action="/download/HAPPA_Restaurant_Zertifikat_2023-01.pdf"
             target='_blank'
-            title="Zertifikat herunterladen"
+            title="Download"
         >
             <button
                 type="submit"
@@ -19,7 +20,10 @@ const Certificate: Component = () => {
                     className={styles.certificateIcon}
                 />
 
-                Wir sind bio-zertifiziert!
+                <Text
+                    en="We are certified organic!"
+                    de="Wir sind bio-zertifiziert!"
+                />
 
                 <p class={styles.certificateNumber}>
                     DE-ÖKO-070

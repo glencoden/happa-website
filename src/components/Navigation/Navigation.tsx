@@ -4,6 +4,7 @@ import Button, { ButtonSize } from '../Button/Button'
 import Image from '../Image/Image'
 import Link from '../Link/Link'
 import LocaleToggle from '../LocaleToggle/LocaleToggle'
+import Text from '../Text/Text'
 import styles from './Navigation.module.css'
 
 type Props = {
@@ -34,7 +35,10 @@ const Navigation: Component<Props> = ({ currentPathname }) => {
                         size={ButtonSize.Regular}
                         active={currentPathname === '/about' || currentPathname === '/about/'}
                     >
-                        Über uns
+                        <Text
+                            en="About"
+                            de="Über uns"
+                        />
                     </Button>
                 </a>
 
@@ -43,7 +47,10 @@ const Navigation: Component<Props> = ({ currentPathname }) => {
                         size={ButtonSize.Regular}
                         active={currentPathname === '/lunch' || currentPathname === '/lunch/'}
                     >
-                        Mittag
+                        <Text
+                            en="Lunch"
+                            de="Mittag"
+                        />
                     </Button>
                 </a>
 
@@ -70,7 +77,10 @@ const Navigation: Component<Props> = ({ currentPathname }) => {
                         size={ButtonSize.Regular}
                         active={currentPathname === '/voucher' || currentPathname === '/voucher/'}
                     >
-                        Gutscheine
+                        <Text
+                            en="Vouchers"
+                            de="Gutscheine"
+                        />
                     </Button>
                 </a>
 
@@ -79,7 +89,10 @@ const Navigation: Component<Props> = ({ currentPathname }) => {
                         size={ButtonSize.Regular}
                         active={currentPathname === '/partner' || currentPathname === '/partner/'}
                     >
-                        Partner
+                        <Text
+                            en="Partners"
+                            de="Partner"
+                        />
                     </Button>
                 </a>
             </div>

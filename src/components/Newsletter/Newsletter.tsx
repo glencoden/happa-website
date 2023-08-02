@@ -1,4 +1,5 @@
 import type { Component } from 'solid-js'
+import Text from '../Text/Text'
 import styles from './Newsletter.module.css'
 
 export enum NewsletterColorScheme {
@@ -14,7 +15,10 @@ const Newsletter: Component<Props> = ({ colorScheme }) => {
     return (
         <div class={styles.newsletter}>
             <p class={styles.infoText}>
-                Melde dich für unseren monatlichen Newsletter an, damit wir dich über unsere Veranstaltungen am Laufenden halten können.
+                <Text
+                    en="Sign up for our monthly newsletter so we can keep you updated on our events."
+                    de="Melde dich für unseren monatlichen Newsletter an, damit wir dich über unsere Veranstaltungen am Laufenden halten können."
+                />
             </p>
 
             <div
