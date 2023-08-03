@@ -9,6 +9,8 @@
 
 .certificateIcon {
     width: 48px;
+
+    margin-bottom: var(--space-s);
 }
 
 .certificateNumber {

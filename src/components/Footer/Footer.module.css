@@ -14,6 +14,13 @@
     width: 100vw;
     height: var(--footer-height);
     padding: var(--space-m) var(--page-content-padding);
+
+    color: var(--white);
+    background-color: var(--primary-color);
+}
+
+.footer input {
+    border-color: var(--white);
 }
 
 .smiley {
@@ -21,6 +28,8 @@
 
     width: 65px;
     margin: -5px; /* Fix for an unwanted margin in the svg */
+
+    filter: invert(1);
 }
 
 .footerNavigation {
@@ -55,10 +64,18 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+
+        color: var(--black);
+        background-color: var(--white);
+    }
+
+    .footer input {
+        border-color: var(--black);
     }
 
     .smiley {
         margin: -10px; /* Fix for an unwanted margin in the svg */
+        filter: none;
     }
 
     .newsletterBox {
