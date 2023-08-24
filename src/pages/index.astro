@@ -1,64 +1,28 @@
 ---
-import { Locale } from '../enums/Locale'
 import Layout from '../layouts/Layout.astro'
-import ArticleBanner from '../components/ArticleBanner/ArticleBanner'
-import ArticleDefault from '../components/ArticleDefault/ArticleDefault'
+import Home from '../features/Home/Home'
 ---
 
 <Layout>
-    <ArticleBanner
-        client:idle
-        title={{
-            [Locale.English]: "Plant-based seasonal organic",
-            [Locale.German]: "Pflanzlich, saisonal, bio"
-        }}
-        subtitle={{
-            [Locale.English]: "Here is a brief outline about Happa and what you stand for.",
-            [Locale.German]: "Hier steht ein kurzer Abriss über Happa und wofür ihr steht."
-        }}
-        content={{
-            [Locale.English]: "Happa is healthy, balanced regional cuisine. Neither hearty, nor the next clean eating bar, we have the best of both worlds. We cook delicious food in a modern presentation. There's sure to be something for you, too.",
-            [Locale.German]: "Happa ist gesunde, ausgewogene Regionalküche. Weder deftig, noch die nächste Clean Eating Bar, gibt es bei uns das Beste aus beiden Welten. Wir kochen leckeres Essen in moderner Aufmachung. Bestimmt ist auch für dich etwas dabei."
-        }}
-        imageUrl="https://cdn.sanity.io/images/hwz0ma01/production/803afba039f4c09a9c77be274479b3c2d9d65b8f-3264x2448.jpg"
-    />
+    <Home client:idle />
 
-    <ArticleDefault
-        client:idle
-        imageUrl="https://cdn.sanity.io/images/hwz0ma01/production/63bbc068102b139782e8d83b08903acca4871318-1600x1200.jpg"
-        title={{
-            [Locale.English]: "Lunch",
-            [Locale.German]: "Mittagstisch"
-        }}
-        date="2022-08-20T19:30:00.000Z"
-        content={{
-            [Locale.English]: "We cook with seasonal, regional and organic ingredients. We use no animal products, no refined sugar and no additives. We cook with love and passion. We are a team of chefs, nutritionists and food lovers. We are Happa.",
-            [Locale.German]: "Wir kochen mit saisonalen, regionalen und bio-zertifizierten Zutaten. Wir verwenden keine tierischen Produkte, keinen raffinierten Zucker und keine Zusatzstoffe. Wir kochen mit Liebe und Leidenschaft. Wir sind ein Team aus Köchen, Ernährungswissenschaftlern und Food-Lovern. Wir sind Happa."
-        }}
-        linkText={{
-            [Locale.English]: "See lunch menu",
-            [Locale.German]: "Tagesmenü ansehen"
-        }}
-        linkUrl="https://github.com/glencoden/happa-website"
-    />
-
-    <ArticleDefault
-        client:idle
-        imageUrl="https://cdn.sanity.io/images/hwz0ma01/production/803afba039f4c09a9c77be274479b3c2d9d65b8f-3264x2448.jpg"
-        title={{
-            [Locale.English]: "Dinner events",
-            [Locale.German]: "Dinner-Events"
-        }}
-        date="2022-08-20T19:30:00.000Z"
-        content={{
-            [Locale.English]: "Theme evenings with unique menu and matching wine accompaniment.  Only with reservation. In the newsletter we keep you up to date.",
-            [Locale.German]: "Themenabende mit einzigartigem Menü und passender Weinbegleitung.  Nur mit Reservierung. Im Newsletter halten wir euch am Laufenden."
-        }}
-        linkText={{
-            [Locale.English]: "Book tickets",
-            [Locale.German]: "Tickets buchen"
-        }}
-        linkUrl="https://github.com/glencoden/happa-website"
-        reverse={true}
-    />
+    <!--<ArticleDefault-->
+    <!--    client:idle-->
+    <!--    imageUrl="https://cdn.sanity.io/images/hwz0ma01/production/803afba039f4c09a9c77be274479b3c2d9d65b8f-3264x2448.jpg"-->
+    <!--    title={{-->
+    <!--        [Locale.English]: "Dinner events",-->
+    <!--        [Locale.German]: "Dinner-Events"-->
+    <!--    }}-->
+    <!--    date="2022-08-20T19:30:00.000Z"-->
+    <!--    content={{-->
+    <!--        [Locale.English]: "Theme evenings with unique menu and matching wine accompaniment.  Only with reservation. In the newsletter we keep you up to date.",-->
+    <!--        [Locale.German]: "Themenabende mit einzigartigem Menü und passender Weinbegleitung.  Nur mit Reservierung. Im Newsletter halten wir euch am Laufenden."-->
+    <!--    }}-->
+    <!--    linkText={{-->
+    <!--        [Locale.English]: "Book tickets",-->
+    <!--        [Locale.German]: "Tickets buchen"-->
+    <!--    }}-->
+    <!--    linkUrl="https://github.com/glencoden/happa-website"-->
+    <!--    reverse={true}-->
+    <!--/>-->
 </Layout>

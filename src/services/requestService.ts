@@ -17,6 +17,50 @@ class RequestService {
         return `${sanityEndpoint}?query=${query}`
     }
 
+    getHomeBannerData() {
+        const url = this._createSanityUrl(
+            encodeURIComponent(`
+                *[_type == "homeBanner"]{
+                    title,
+                    subtitle,
+                    description,
+                    "imageUrl": image.asset->url
+                }
+            `),
+        )
+        return this._get(url).then(parseArticleResponse)
+    }
+
+    getHomeLunchSectionData() {
+        const url = this._createSanityUrl(
+            encodeURIComponent(`
+                *[_type == "homeLunchSection"]{
+                    title,
+                    description,
+                    buttonText,
+                    buttonLink,
+                    "imageUrl": image.asset->url
+                }
+            `),
+        )
+        return this._get(url).then(parseArticleResponse)
+    }
+
+    getHomeDinnerSectionData() {
+        const url = this._createSanityUrl(
+            encodeURIComponent(`
+                *[_type == "homeDinnerSection"]{
+                    title,
+                    description,
+                    buttonText,
+                    buttonLink,
+                    "imageUrl": image.asset->url
+                }
+            `),
+        )
+        return this._get(url).then(parseArticleResponse)
+    }
+
     getLunchMenuData() {
         const url = this._createSanityUrl(
             encodeURIComponent('*[_type == "lunchMenu"]'),

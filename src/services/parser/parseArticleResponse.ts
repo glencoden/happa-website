@@ -5,9 +5,27 @@ import { parseRichTextItem } from './parseRichTextItem'
 export const parseArticleResponse = (response: any): Article | null => {
     const result = response?.result
 
-    if (!Array.isArray(result) || result.length === 0) {
+    if (!Array.isArray(result)) {
         console.warn('unexpected parser input:', response)
         return null
+    }
+
+    if (result.length === 0) {
+        return {
+            title: {
+                [Locale.English]: '',
+                [Locale.German]: '',
+            },
+            subtitle: null,
+            date: null,
+            content: {
+                [Locale.English]: [],
+                [Locale.German]: [],
+            },
+            buttonText: null,
+            buttonLink: null,
+            imageUrl: '',
+        }
     }
 
     return {
