@@ -3,3 +3,8 @@
     grid-template-columns: 1fr 1fr;
     gap: var(--space-m);
 }
+
+.aboutCarouselImage {
+    width: 30vw;
+    height: calc(30vw * 5 / 6);
+}

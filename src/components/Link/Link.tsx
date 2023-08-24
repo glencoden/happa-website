@@ -1,5 +1,4 @@
 import type { ParentComponent } from 'solid-js'
-import styles from './Link.module.css'
 
 type Props = {
     linkUrl: string

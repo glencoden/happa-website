@@ -35,6 +35,7 @@ const ArticleDefault: Component<Props> = (props) => {
                 [styles.textBoxReverse]: Boolean(props.reverse),
             }}>
                 <h3 class={styles.title}>
+                    {/* TODO replace eg english with [Locale.English] in all Article components */}
                     <Text en={props.title.english} de={props.title.german} />
                 </h3>
 

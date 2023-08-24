@@ -1,8 +1,10 @@
-import { createSignal, onMount, Show } from 'solid-js'
+import { createSignal, For, onMount, Show } from 'solid-js'
 import type { Component } from 'solid-js'
 import ArticleBanner from '../../components/ArticleBanner/ArticleBanner'
 import ArticleCard from '../../components/ArticleCard/ArticleCard'
 import ArticleDefault from '../../components/ArticleDefault/ArticleDefault'
+import Carousel from '../../components/Carousel/Carousel'
+import Image from '../../components/Image/Image'
 import { requestService } from '../../services/requestService'
 import type { AboutCarousel } from '../../types/AboutCarousel'
 import type { Article } from '../../types/Article'
@@ -60,6 +62,21 @@ const About: Component = () => {
                         content={aboutSophia()!.content}
                     />
                 </div>
+            </Show>
+
+            <Show when={carousel() !== null}>
+                <Carousel
+                    description={carousel()!.description}
+                >
+                    <For each={carousel()!.imageUrls}>
+                        {(imageUrl) => (
+                            <Image
+                                imageUrl={imageUrl}
+                                className={styles.aboutCarouselImage}
+                            />
+                        )}
+                    </For>
+                </Carousel>
             </Show>
 
             <Show when={happaForHome() !== null && happaForHome()!.buttonText !== null && happaForHome()!.buttonLink !== null}>
