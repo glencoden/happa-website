@@ -1,3 +1,4 @@
+import { parseAboutCarouselResponse } from './parser/parseAboutCarouselResponse'
 import { parseArticleResponse } from './parser/parseArticleResponse'
 import { parseLunchMenuResponse } from './parser/parseLunchMenuResponse'
 
@@ -19,7 +20,7 @@ class RequestService {
 
     getHomeBannerData() {
         const url = this._createSanityUrl(
-            encodeURIComponent(`
+            encodeURI(`
                 *[_type == "homeBanner"]{
                     title,
                     subtitle,
@@ -33,7 +34,7 @@ class RequestService {
 
     getHomeLunchSectionData() {
         const url = this._createSanityUrl(
-            encodeURIComponent(`
+            encodeURI(`
                 *[_type == "homeLunchSection"]{
                     title,
                     description,
@@ -48,8 +49,75 @@ class RequestService {
 
     getHomeDinnerSectionData() {
         const url = this._createSanityUrl(
-            encodeURIComponent(`
+            encodeURI(`
                 *[_type == "homeDinnerSection"]{
+                    title,
+                    description,
+                    buttonText,
+                    buttonLink,
+                    "imageUrl": image.asset->url
+                }
+            `),
+        )
+        return this._get(url).then(parseArticleResponse)
+    }
+
+    getAboutBannerData() {
+        const url = this._createSanityUrl(
+            encodeURI(`
+                *[_type == "aboutBanner"]{
+                    title,
+                    subtitle,
+                    description,
+                    "imageUrl": image.asset->url
+                }
+            `),
+        )
+        return this._get(url).then(parseArticleResponse)
+    }
+
+    getAboutNinaData() {
+        const url = this._createSanityUrl(
+            encodeURI(`
+                *[_type == "aboutNina"]{
+                    title,
+                    description,
+                    "imageUrl": image.asset->url
+                }
+            `),
+        )
+        return this._get(url).then(parseArticleResponse)
+    }
+
+    getAboutSophiaData() {
+        const url = this._createSanityUrl(
+            encodeURI(`
+                *[_type == "aboutSophia"]{
+                    title,
+                    description,
+                    "imageUrl": image.asset->url
+                }
+            `),
+        )
+        return this._get(url).then(parseArticleResponse)
+    }
+
+    getAboutCarouselData() {
+        const url = this._createSanityUrl(
+            encodeURI(`
+                *[_type == "aboutCarousel"]{
+                    description,
+                    "imageUrls": images[].asset->url
+                }
+            `),
+        )
+        return this._get(url).then(parseAboutCarouselResponse)
+    }
+
+    getAboutHappaForHomeData() {
+        const url = this._createSanityUrl(
+            encodeURI(`
+                *[_type == "aboutHappaForHome"]{
                     title,
                     description,
                     buttonText,
@@ -63,14 +131,14 @@ class RequestService {
 
     getLunchMenuData() {
         const url = this._createSanityUrl(
-            encodeURIComponent('*[_type == "lunchMenu"]'),
+            encodeURI('*[_type == "lunchMenu"]'),
         )
         return this._get(url).then(parseLunchMenuResponse)
     }
 
     getLunchDescriptionData() {
         const url = this._createSanityUrl(
-            encodeURIComponent(`
+            encodeURI(`
                 *[_type == "lunchDescription"]{
                     title,
                     description,

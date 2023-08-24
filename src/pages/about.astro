@@ -1,12 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro'
-import Text from '../components/Text/Text'
+import About from '../features/About/About'
 ---
 
 <Layout>
-    <Text
-        client:idle
-        en="This is the about page"
-        de="Das ist die Über-Seite"
-    />
+    <About client:idle />
 </Layout>

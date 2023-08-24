@@ -8,9 +8,9 @@ import { requestService } from '../../services/requestService'
 import type { Article } from '../../types/Article'
 import type { LocalizedRichText } from '../../types/LocalizedRichText'
 import type { LocalizedString } from '../../types/LocalizedString'
-import styles from './LunchMenu.module.css'
+import styles from './Lunch.module.css'
 
-const LunchMenu: Component = () => {
+const Lunch: Component = () => {
     const [title, setTitle] = createSignal<LocalizedString | null>(null)
     const [menu, setMenu] = createSignal<LocalizedRichText | null>(null)
     const [description, setDescription] = createSignal<Article | null>(null)
@@ -61,4 +61,4 @@ const LunchMenu: Component = () => {
     )
 }
 
-export default LunchMenu
+export default Lunch
