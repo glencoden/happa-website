@@ -5,14 +5,14 @@ import { parseRichTextItem } from './parseRichTextItem'
 
 type ResultItem = {
     title: LocalizedString,
-    detail: LocalizedRichText,
+    menu: LocalizedRichText,
 }
 
-export const parseMenuResponse = (response: any): ResultItem[] => {
+export const parseLunchMenuResponse = (response: any): ResultItem[] => {
     const result = response?.result
 
     if (!Array.isArray(result)) {
-        console.warn('unexpected parser input')
+        console.warn('unexpected parser input:', result)
         return []
     }
 
@@ -21,9 +21,9 @@ export const parseMenuResponse = (response: any): ResultItem[] => {
             [Locale.English]: entry.title?.en || '',
             [Locale.German]: entry.title?.de || '',
         },
-        detail: {
-            [Locale.English]: parseRichTextItem(entry.detail?.en),
-            [Locale.German]: parseRichTextItem(entry.detail?.de),
+        menu: {
+            [Locale.English]: parseRichTextItem(entry.menu?.en),
+            [Locale.German]: parseRichTextItem(entry.menu?.de),
         },
     }))
 }

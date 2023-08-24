@@ -1,6 +1,8 @@
 import { Match, Switch, For } from 'solid-js'
 import type { Component } from 'solid-js'
 import { Locale } from '../../enums/Locale'
+import { useStore } from '@nanostores/solid'
+import { locale } from '../../store'
 
 type RichTextItemChild = {
     text: string,
@@ -43,11 +45,11 @@ const RenderRichTextChildren: Component<{ children: RichTextItemChild[] }> = ({ 
 }
 
 const RichText: Component<Props> = ({ en, de }) => {
-    const locale = Math.random() < 0.5 ? Locale.English : Locale.German
+    const $locale = useStore(locale)
 
     return (
         <Switch>
-            <Match when={locale === Locale.English}>
+            <Match when={$locale() === Locale.English}>
                 <For each={en} fallback={<div>Loading...</div>}>
                     {(item) => (
                         <><RenderRichTextChildren children={item.children} /><br /></>
@@ -55,7 +57,7 @@ const RichText: Component<Props> = ({ en, de }) => {
                 </For>
             </Match>
 
-            <Match when={locale === Locale.German}>
+            <Match when={$locale() === Locale.German}>
                 <For each={de} fallback={<div>Loading...</div>}>
                     {(item) => (
                         <><RenderRichTextChildren children={item.children} /><br /></>

@@ -1,4 +1,4 @@
-import { parseMenuResponse } from './parser/parseMenuResponse'
+import { parseLunchMenuResponse } from './parser/parseLunchMenuResponse'
 
 const projectId = 'hwz0ma01'
 const dataSet = 'production'
@@ -16,11 +16,11 @@ class RequestService {
         return `${sanityEndpoint}?query=${query}`
     }
 
-    getMenuData() {
+    getLunchMenuData() {
         const url = this._createSanityUrl(
-            encodeURIComponent('*[_type == "menu"]'),
+            encodeURIComponent('*[_type == "lunchMenu"]'),
         )
-        return this._get(url).then(parseMenuResponse)
+        return this._get(url).then(parseLunchMenuResponse)
     }
 }
 
