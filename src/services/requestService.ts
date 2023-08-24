@@ -1,3 +1,4 @@
+import { parseArticleResponse } from './parser/parseArticleResponse'
 import { parseLunchMenuResponse } from './parser/parseLunchMenuResponse'
 
 const projectId = 'hwz0ma01'
@@ -21,6 +22,19 @@ class RequestService {
             encodeURIComponent('*[_type == "lunchMenu"]'),
         )
         return this._get(url).then(parseLunchMenuResponse)
+    }
+
+    getLunchDescriptionData() {
+        const url = this._createSanityUrl(
+            encodeURIComponent(`
+                *[_type == "lunchDescription"]{
+                    title,
+                    description,
+                    "imageUrl": image.asset->url
+                }
+            `),
+        )
+        return this._get(url).then(parseArticleResponse)
     }
 }
 

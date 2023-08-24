@@ -1,14 +1,16 @@
 import { Show } from 'solid-js'
 import type { Component } from 'solid-js'
+import type { LocalizedRichText } from '../../types/LocalizedRichText'
 import type { LocalizedString } from '../../types/LocalizedString'
 import Image from '../Image/Image'
+import RichText from '../RichText/RichText'
 import Text from '../Text/Text'
 import styles from './ArticleBanner.module.css'
 
 type Props = {
     title: LocalizedString
     subtitle: LocalizedString
-    content?: LocalizedString
+    content?: LocalizedRichText
     imageUrl: string
 }
 
@@ -32,7 +34,7 @@ const ArticleBanner: Component<Props> = (props) => {
 
             <Show when={props.content !== undefined}>
                 <p class={styles.content}>
-                    <Text en={props.content!.english} de={props.content!.german} />
+                    <RichText en={props.content!.english} de={props.content!.german} />
                 </p>
             </Show>
         </div>

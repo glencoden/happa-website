@@ -3,6 +3,7 @@ import type { Component } from 'solid-js'
 import { Locale } from '../../enums/Locale'
 import { useStore } from '@nanostores/solid'
 import { locale } from '../../store'
+import styles from './RichText.module.css'
 
 type RichTextItemChild = {
     text: string,
@@ -24,15 +25,17 @@ const RenderRichTextChildren: Component<{ children: RichTextItemChild[] }> = ({ 
             <For each={children} fallback={<span>Loading...</span>}>
                 {(item) => {
                     const classNames: string[] = []
+
                     item.marks.forEach((mark: string) => {
                         switch (mark) {
                             case 'strong':
-                                classNames.push('font-weight-bold')
+                                classNames.push(styles.bold)
                                 break
                             default:
                                 break
                         }
                     })
+
                     return (
                         classNames.length === 0
                             ? <>{item.text}</>

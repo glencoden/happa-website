@@ -1,0 +1,16 @@
+.title {
+    font-family: BuzzBlack, system-ui, sans-serif;
+    font-size: var(--font-size-l);
+    text-transform: uppercase;
+    padding: var(--space-m) 0;
+}
+
+.menu {
+    font-size: var(--font-size-m);
+    line-height: 1.6;
+    padding-bottom: var(--space-xl);
+}
+
+.title, .menu {
+    text-align: center;
+}

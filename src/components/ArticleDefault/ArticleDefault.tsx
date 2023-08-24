@@ -1,9 +1,11 @@
 import type { Component } from 'solid-js'
 import { Show } from 'solid-js'
+import type { LocalizedRichText } from '../../types/LocalizedRichText'
 import type { LocalizedString } from '../../types/LocalizedString'
 import Button, { ButtonSize } from '../Button/Button'
 import Image from '../Image/Image'
 import Link from '../Link/Link'
+import RichText from '../RichText/RichText'
 import Text from '../Text/Text'
 import styles from './ArticleDefault.module.css'
 
@@ -11,7 +13,7 @@ type Props = {
     imageUrl: string
     title: LocalizedString
     date?: string
-    content?: LocalizedString
+    content?: LocalizedRichText
     linkText?: LocalizedString
     linkUrl?: string
     reverse?: boolean
@@ -51,7 +53,7 @@ const ArticleDefault: Component<Props> = (props) => {
 
                 <Show when={props.content !== undefined}>
                     <p class={styles.content}>
-                        <Text en={props.content!.english} de={props.content!.german} />
+                        <RichText en={props.content!.english} de={props.content!.german} />
                     </p>
                 </Show>
 

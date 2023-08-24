@@ -8,22 +8,22 @@ type ResultItem = {
     menu: LocalizedRichText,
 }
 
-export const parseLunchMenuResponse = (response: any): ResultItem[] => {
+export const parseLunchMenuResponse = (response: any): ResultItem | null => {
     const result = response?.result
 
-    if (!Array.isArray(result)) {
+    if (!Array.isArray(result) || result.length === 0) {
         console.warn('unexpected parser input:', result)
-        return []
+        return null
     }
 
-    return result.map((entry: any) => ({
+    return {
         title: {
-            [Locale.English]: entry.title?.en || '',
-            [Locale.German]: entry.title?.de || '',
+            [Locale.English]: result[0].title?.en || '',
+            [Locale.German]: result[0].title?.de || '',
         },
         menu: {
-            [Locale.English]: parseRichTextItem(entry.menu?.en),
-            [Locale.German]: parseRichTextItem(entry.menu?.de),
+            [Locale.English]: parseRichTextItem(result[0].menu?.en),
+            [Locale.German]: parseRichTextItem(result[0].menu?.de),
         },
-    }))
+    }
 }
