@@ -1,0 +1,1 @@
+import{g as r,s as o,i as s,t as l}from"./web.c9e0eb9c.js";const a=l('<a rel="noopener noreferrer" target="_blank">'),_=({children:t,linkUrl:n})=>(()=>{const e=r(a);return o(e,"href",n),s(e,t),e})();export{_ as L};
