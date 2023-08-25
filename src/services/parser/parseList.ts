@@ -1,4 +1,4 @@
-export const parseList = <T>(response: any, parser: T): ReturnType<T>[] | null => {
+export const parseList = <T extends (...args: any) => any>(response: any, parser: T): ReturnType<T>[] | null => {
     const list = response?.result
 
     if (!Array.isArray(list)) {

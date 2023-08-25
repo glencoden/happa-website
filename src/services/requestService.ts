@@ -166,11 +166,46 @@ class RequestService {
 
     getDinnerEventsData() {
         const url = this._createSanityUrl(
-            encodeURI(`
-                *[_type == "dinnerEvents"]
-            `),
+            encodeURI('*[_type == "dinnerEvents"]'),
         )
         return this._get(url).then((response) => parseList(response, parseMenuResponse))
+    }
+
+    getEventsBannerData() {
+        const url = this._createSanityUrl(
+            encodeURI(`
+                *[_type == "eventsBanner"]{
+                    title,
+                    subtitle,
+                    description,
+                    "imageUrl": image.asset->url
+                }
+            `),
+        )
+        return this._get(url).then(parseArticleResponse)
+    }
+
+    getEventsPublicData() {
+        const url = this._createSanityUrl(
+            encodeURI('*[_type == "eventsPublic"]'),
+        )
+        return this._get(url).then((response) => parseList(response, parseArticleResponse))
+    }
+
+    getEventsPrivateData() {
+        const url = this._createSanityUrl(
+            encodeURI(`
+                *[_type == "eventsPrivate"]{
+                    title,
+                    subtitle,
+                    description,
+                    buttonText,
+                    buttonLink,
+                    "imageUrl": image.asset->url
+                }
+            `),
+        )
+        return this._get(url).then(parseArticleResponse)
     }
 }
 
