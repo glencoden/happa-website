@@ -207,6 +207,22 @@ class RequestService {
         )
         return this._get(url).then(parseArticleResponse)
     }
+
+    getVoucherData() {
+        const url = this._createSanityUrl(
+            encodeURI(`
+                *[_type == "voucher"]{
+                    title,
+                    subtitle,
+                    description,
+                    buttonText,
+                    buttonLink,
+                    "imageUrl": image.asset->url
+                }
+            `),
+        )
+        return this._get(url).then(parseArticleResponse)
+    }
 }
 
 export const requestService = new RequestService()

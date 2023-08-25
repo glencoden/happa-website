@@ -41,6 +41,12 @@
     width: 70vw;
 }
 
+.buttonBox {
+    display: flex;
+    justify-content: center;
+    padding-top: var(--space-l);
+}
+
 @media only screen and (min-width: 601px) {}
 
 @media only screen and (min-width: 901px) {
