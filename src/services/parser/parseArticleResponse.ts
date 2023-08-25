@@ -51,6 +51,6 @@ export const parseArticleResponse = (response: any): Article | null => {
             }
             : null,
         buttonLink: result[0].buttonLink || null,
-        imageUrl: result[0].imageUrl,
+        imageUrl: result[0].imageUrl || '',
     }
 }

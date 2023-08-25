@@ -1,6 +1,7 @@
 import { parseAboutCarouselResponse } from './parser/parseAboutCarouselResponse'
 import { parseArticleResponse } from './parser/parseArticleResponse'
-import { parseLunchMenuResponse } from './parser/parseLunchMenuResponse'
+import { parseList } from './parser/parseList'
+import { parseMenuResponse } from './parser/parseMenuResponse'
 
 const projectId = 'hwz0ma01'
 const dataSet = 'production'
@@ -133,7 +134,7 @@ class RequestService {
         const url = this._createSanityUrl(
             encodeURI('*[_type == "lunchMenu"]'),
         )
-        return this._get(url).then(parseLunchMenuResponse)
+        return this._get(url).then(parseMenuResponse)
     }
 
     getLunchDescriptionData() {
@@ -147,6 +148,29 @@ class RequestService {
             `),
         )
         return this._get(url).then(parseArticleResponse)
+    }
+
+    getDinnerBannerData() {
+        const url = this._createSanityUrl(
+            encodeURI(`
+                *[_type == "dinnerBanner"]{
+                    title,
+                    subtitle,
+                    description,
+                    "imageUrl": image.asset->url
+                }
+            `),
+        )
+        return this._get(url).then(parseArticleResponse)
+    }
+
+    getDinnerEventsData() {
+        const url = this._createSanityUrl(
+            encodeURI(`
+                *[_type == "dinnerEvents"]
+            `),
+        )
+        return this._get(url).then((response) => parseList(response, parseMenuResponse))
     }
 }
 

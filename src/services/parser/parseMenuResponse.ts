@@ -1,14 +1,8 @@
 import { Locale } from '../../enums/Locale'
-import type { LocalizedRichText } from '../../types/LocalizedRichText'
-import type { LocalizedString } from '../../types/LocalizedString'
+import type { MenuType } from '../../types/MenuType'
 import { parseRichTextItem } from './parseRichTextItem'
 
-type ResultItem = {
-    title: LocalizedString,
-    menu: LocalizedRichText,
-}
-
-export const parseLunchMenuResponse = (response: any): ResultItem | null => {
+export const parseMenuResponse = (response: any): MenuType | null => {
     const result = response?.result
 
     if (!Array.isArray(result) || result.length === 0) {
@@ -25,5 +19,12 @@ export const parseLunchMenuResponse = (response: any): ResultItem | null => {
             [Locale.English]: parseRichTextItem(result[0].menu?.en),
             [Locale.German]: parseRichTextItem(result[0].menu?.de),
         },
+        buttonText: result[0].buttonText
+            ? {
+                [Locale.English]: result[0].buttonText.en || '',
+                [Locale.German]: result[0].buttonText.de || '',
+            }
+            : null,
+        buttonLink: result[0].buttonLink || null,
     }
 }

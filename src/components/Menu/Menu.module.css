@@ -8,9 +8,21 @@
 .menu {
     font-size: var(--font-size-m);
     line-height: 1.6;
-    padding-bottom: var(--space-xl);
+    padding-bottom: var(--space-l);
 }
 
 .title, .menu {
     text-align: center;
+}
+
+.buttonBox {
+    display: flex;
+    justify-content: center;
+    padding-bottom: var(--space-l);
+}
+
+@media only screen and (min-width: 601px) {
+    .buttonBox {
+        padding-bottom: var(--space-xl);
+    }
 }
