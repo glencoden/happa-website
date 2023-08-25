@@ -259,6 +259,20 @@ class RequestService {
         )
         return this._get(url).then(parseTextPageResponse)
     }
+
+    getImprintData() {
+        const url = this._createSanityUrl(
+            encodeURI('*[_type == "imprint"]'),
+        )
+        return this._get(url).then(parseTextPageResponse)
+    }
+
+    getDataProtectionData() {
+        const url = this._createSanityUrl(
+            encodeURI('*[_type == "dataProtection"]'),
+        )
+        return this._get(url).then(parseTextPageResponse)
+    }
 }
 
 export const requestService = new RequestService()
