@@ -6,7 +6,7 @@
         "image"
         "text";
 
-    margin: 0 0 var(--space-xl);
+    margin: 0 0 var(--space-m);
 }
 
 .isLink {
@@ -31,4 +31,10 @@
 .content {
     font-size: var(--font-size-m);
     margin-bottom: var(--space-m);
+}
+
+@media only screen and (min-width: 901px) {
+    .article {
+        margin: 0 0 var(--space-xl);
+    }
 }

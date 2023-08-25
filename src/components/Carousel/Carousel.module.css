@@ -5,12 +5,13 @@
 
     width: 100vw;
     margin-bottom: var(--space-xl);
-    overflow: hidden;
 }
 
 .itemsBox {
     display: flex;
     gap: var(--space-s);
+    padding: 0 var(--space-s) var(--space-s);
+    overflow-x: scroll;
 }
 
 .description {
