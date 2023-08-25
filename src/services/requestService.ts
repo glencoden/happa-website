@@ -2,6 +2,7 @@ import { parseAboutCarouselResponse } from './parser/parseAboutCarouselResponse'
 import { parseArticleResponse } from './parser/parseArticleResponse'
 import { parseList } from './parser/parseList'
 import { parseMenuResponse } from './parser/parseMenuResponse'
+import { parseTextPageResponse } from './parser/parseTextPageResponse'
 
 const projectId = 'hwz0ma01'
 const dataSet = 'production'
@@ -250,6 +251,13 @@ class RequestService {
             `),
         )
         return this._get(url).then((response) => parseList(response, parseArticleResponse))
+    }
+
+    getPressData() {
+        const url = this._createSanityUrl(
+            encodeURI('*[_type == "press"]'),
+        )
+        return this._get(url).then(parseTextPageResponse)
     }
 }
 
