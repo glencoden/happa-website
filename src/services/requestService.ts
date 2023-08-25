@@ -223,6 +223,34 @@ class RequestService {
         )
         return this._get(url).then(parseArticleResponse)
     }
+
+    getPartnerBannerData() {
+        const url = this._createSanityUrl(
+            encodeURI(`
+                *[_type == "partnerBanner"]{
+                    title,
+                    subtitle,
+                    description,
+                    "imageUrl": image.asset->url
+                }
+            `),
+        )
+        return this._get(url).then(parseArticleResponse)
+    }
+
+    getPartnersData() {
+        const url = this._createSanityUrl(
+            encodeURI(`
+                *[_type == "partners"]{
+                    title,
+                    description,
+                    buttonLink,
+                    "imageUrl": image.asset->url
+                }
+            `),
+        )
+        return this._get(url).then((response) => parseList(response, parseArticleResponse))
+    }
 }
 
 export const requestService = new RequestService()

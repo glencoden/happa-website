@@ -37,4 +37,8 @@
     .article {
         margin: 0 0 var(--space-xl);
     }
+
+    .textBox {
+        width: 70%;
+    }
 }
