@@ -1,0 +1,1 @@
+import{g as s,i as a,e as p,s as n,t as o}from"./web.06188ab3.js";const f=o("<a>"),m=o('<a rel="noopener noreferrer" target="_blank">'),c=({children:r,linkUrl:t})=>t.startsWith("/")?(()=>{const e=s(f);return a(e,r),p(()=>n(e,"href",`/happa-website${t}`)),e})():(()=>{const e=s(m);return n(e,"href",t),a(e,r),e})();export{c as L};
