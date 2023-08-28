@@ -24,3 +24,9 @@
         height: 27vw;
     }
 }
+
+@media only screen and (min-width: 1681px) {
+    .aboutCarouselImage {
+        height: 18vw;
+    }
+}
