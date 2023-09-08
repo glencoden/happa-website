@@ -188,7 +188,16 @@ class RequestService {
 
     getEventsPublicData() {
         const url = this._createSanityUrl(
-            encodeURI('*[_type == "eventsPublic"]'),
+            encodeURI(`
+                *[_type == "eventsPublic"]{
+                    title,
+                    date,
+                    description,
+                    buttonText,
+                    buttonLink,
+                    "imageUrl": image.asset->url
+                }
+            `),
         )
         return this._get(url).then((response) => parseList(response, parseArticleResponse))
     }

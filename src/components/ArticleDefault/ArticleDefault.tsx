@@ -3,6 +3,7 @@ import { Show } from 'solid-js'
 import type { LocalizedRichText } from '../../types/LocalizedRichText'
 import type { LocalizedString } from '../../types/LocalizedString'
 import Button, { ButtonSize } from '../Button/Button'
+import DateComponent from '../Date/Date'
 import Image from '../Image/Image'
 import Link from '../Link/Link'
 import RichText from '../RichText/RichText'
@@ -40,15 +41,11 @@ const ArticleDefault: Component<Props> = (props) => {
                 </h3>
 
                 <Show when={props.date !== undefined}>
-                    {/* TODO generate text below from date string prop */}
                     <time
                         class={styles.date}
                         datetime={props.date}
                     >
-                        <Text
-                            en="Fri, August 20, 2022, from 7:30 p.m"
-                            de="Fr, 20.08.2022, ab 19:30 uhr"
-                        />
+                        <DateComponent dateString={props.date!} />
                     </time>
                 </Show>
 
