@@ -47,7 +47,7 @@ const Events: Component = () => {
                                 content={event!.content}
                                 linkText={event!.buttonText!}
                                 linkUrl={event!.buttonLink!}
-                                reverse={index() % 2 === 0}
+                                reverse={index() % 2 === 1}
                             />
                         </Show>
                     )}
@@ -61,7 +61,7 @@ const Events: Component = () => {
                     content={eventsPrivate()!.content}
                     linkText={eventsPrivate()!.buttonText!}
                     linkUrl={eventsPrivate()!.buttonLink!}
-                    reverse={eventsPublic() !== null && eventsPublic()!.length % 2 === 1}
+                    reverse={Array.isArray(eventsPublic()) && eventsPublic()!.length % 2 === 1}
                 />
             </Show>
         </>
