@@ -37,7 +37,7 @@ const ArticleCard: Component<Props> = (props) => {
         </>
     )
 
-    if (props.linkUrl !== undefined) {
+    if (Boolean(props.linkUrl)) {
         return (
             <Link linkUrl={props.linkUrl!}>
                 <div

@@ -20,6 +20,8 @@ type Props = {
     reverse?: boolean
 }
 
+// TODO replace eg english with [Locale.English] in all Article components
+
 const ArticleDefault: Component<Props> = (props) => {
     return (
         <div classList={{
@@ -36,11 +38,10 @@ const ArticleDefault: Component<Props> = (props) => {
                 [styles.textBoxReverse]: Boolean(props.reverse),
             }}>
                 <h3 class={styles.title}>
-                    {/* TODO replace eg english with [Locale.English] in all Article components */}
                     <Text en={props.title.english} de={props.title.german} />
                 </h3>
 
-                <Show when={props.date !== undefined}>
+                <Show when={Boolean(props.date)}>
                     <time
                         class={styles.date}
                         datetime={props.date}
@@ -55,7 +56,7 @@ const ArticleDefault: Component<Props> = (props) => {
                     </p>
                 </Show>
 
-                <Show when={props.linkText !== undefined && props.linkUrl !== undefined}>
+                <Show when={Boolean(props.linkText) && Boolean(props.linkUrl)}>
                     <Link linkUrl={props.linkUrl!}>
                         <Button size={ButtonSize.Large}>
                             <Text en={props.linkText!.english} de={props.linkText!.german} />

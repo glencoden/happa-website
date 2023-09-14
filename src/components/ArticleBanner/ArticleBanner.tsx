@@ -18,6 +18,8 @@ type Props = {
     imageUrl: string
 }
 
+// TODO separate content from link conditional render in ll. 42-56
+
 const ArticleBanner: Component<Props> = (props) => {
     return (
         <div class={styles.article}>
@@ -40,7 +42,7 @@ const ArticleBanner: Component<Props> = (props) => {
                 <p class={styles.content}>
                     <RichText en={props.content!.english} de={props.content!.german} />
 
-                    <Show when={props.linkText !== undefined && props.linkUrl !== undefined}>
+                    <Show when={Boolean(props.linkText) && Boolean(props.linkUrl)}>
                         <div class={styles.buttonBox}>
                             <Link linkUrl={props.linkUrl!}>
                                 <Button size={ButtonSize.Large}>
