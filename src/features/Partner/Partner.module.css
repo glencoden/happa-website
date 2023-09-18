@@ -1,3 +1,21 @@
 .carouselItemBox {
-    width: min(30vw, 640px);
+    width: 70vw;
+}
+
+@media only screen and (min-width: 601px) {
+    .carouselItemBox {
+        width: 56vw;
+    }
+}
+
+@media only screen and (min-width: 901px) {
+    .carouselItemBox {
+        width: 42vw;
+    }
+}
+
+@media only screen and (min-width: 1681px) {
+    .carouselItemBox {
+        width: min(30vw, 640px);
+    }
 }
