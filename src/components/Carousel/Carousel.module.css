@@ -1,0 +1,36 @@
+.carousel {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 100vw;
+    margin-bottom: var(--space-xl);
+}
+
+.itemsBox {
+    display: flex;
+    gap: var(--space-s);
+    padding: 0 var(--space-s) var(--space-s);
+    overflow-x: scroll;
+}
+
+.itemsBox > * {
+    flex-shrink: 0;
+}
+
+.description {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    font-size: var(--font-size-m);
+    width: 70vw;
+}
+
+@media only screen and (min-width: 901px) {
+    .description {
+        font-size: var(--font-size-l);
+        width: 780px;
+        margin-top: var(--space-xl);
+    }
+}

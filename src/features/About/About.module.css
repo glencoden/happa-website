@@ -1,0 +1,32 @@
+.aboutCards {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.aboutCarouselImage {
+    height: 60vw;
+}
+
+@media only screen and (min-width: 601px) {
+    .aboutCarouselImage {
+        height: 42vw;
+    }
+}
+
+@media only screen and (min-width: 901px) {
+    .aboutCards {
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-m);
+    }
+
+
+    .aboutCarouselImage {
+        height: 27vw;
+    }
+}
+
+@media only screen and (min-width: 1681px) {
+    .aboutCarouselImage {
+        height: 18vw;
+    }
+}

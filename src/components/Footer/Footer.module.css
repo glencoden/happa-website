@@ -1,0 +1,92 @@
+.footer {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+
+    display: grid;
+    grid-template-columns: 1fr 1.5fr 1.5fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+        "smiley navigation certificate"
+        "newsletter newsletter newsletter";
+    gap: var(--space-m) var(--space-s);
+
+    width: 100vw;
+    height: var(--footer-height);
+    padding: var(--space-m) var(--page-content-padding);
+
+    color: var(--white);
+    background-color: var(--primary-color);
+}
+
+.footer input {
+    border-color: var(--white);
+}
+
+.smiley {
+    grid-area: smiley;
+
+    width: 65px;
+    margin: -5px; /* Fix for an unwanted margin in the svg */
+
+    filter: invert(1);
+}
+
+.footerNavigation {
+    grid-area: navigation;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 80px;
+}
+
+.newsletterBox {
+    grid-area: newsletter;
+}
+
+.certificateBox {
+    grid-area: certificate;
+}
+
+@media only screen and (min-width: 601px) {
+    .smiley {
+        width: 130px;
+    }
+
+    .footerNavigation {
+        height: 130px;
+    }
+}
+
+@media only screen and (min-width: 901px) {
+    .footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        color: var(--black);
+        background-color: var(--white);
+    }
+
+    .footer input {
+        border-color: var(--black);
+    }
+
+    .smiley {
+        margin: -10px; /* Fix for an unwanted margin in the svg */
+        filter: none;
+    }
+
+    .newsletterBox {
+        width: 50vw;
+    }
+}
+
+@media only screen and (min-width: 1201px) {
+    .footer {
+        gap: var(--space-m)
+    }
+}
+
+@media only screen and (min-width: 1681px) {}

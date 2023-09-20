@@ -1,33 +1,180 @@
+---
+import TopBar from '../components/TopBar/TopBar.tsx'
+import Navigation from '../components/Navigation/Navigation.tsx'
+import Footer from '../components/Footer/Footer.tsx'
+---
+
+<script>
+    const version = '1.0.0'
+
+    console.log(
+        `%cglencoden ❤️ version ${version}`,
+        `font-size: 1rem;
+        padding: 1rem;
+        margin: 1rem 0;
+        border-radius: 0.5rem;
+        color: white;
+        background:linear-gradient(#E66465, #9198E5);`,
+    )
+</script>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="theme-color" content="#000000" />
+        <meta name="theme-color" content="#E0878C" />
         <meta
             name="description"
             content="Happa Restaurant in Berlin Kreuzberg. Regional, seasonal, vegan, plant-based, low-waste. Lunch and dinner events."
         />
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="icon" type="image/svg+xml" href="/icons/smiley.svg" />
         <title>HAPPA</title>
     </head>
     <body>
-        <slot />
+        <nav>
+            <TopBar
+                client:idle
+            />
+            <Navigation
+                client:idle
+                currentPathname={Astro.url.pathname}
+            />
+        </nav>
+
+        <main>
+            <slot />
+        </main>
+
+        <Footer
+            client:visible
+            currentPathname={Astro.url.pathname}
+        />
     </body>
 </html>
 
 <style is:global>
-    :root {
-        /*add css variables*/
+    /* IMPORTS */
+
+    @font-face {
+        font-family: BuzzBlack;
+        src: url("/fonts/BuzzBlack.otf") format("opentype");
+    }
+
+    @font-face {
+        font-family: MonumentGrotesk;
+        src: url("/fonts/MonumentGrotesk-Regular.otf") format("opentype");
+    }
+
+    @font-face {
+        font-family: MonumentGrotesk;
+        font-weight: bold;
+        src: url("/fonts/MonumentGrotesk-Medium.otf") format("opentype");
+    }
+
+    /* GLOBAL */
+
+    * {
+        box-sizing: border-box;
+        line-height: 1.4;
     }
 
     html {
-        font-family: system-ui, sans-serif;
-        background-color: #F6F6F6;
+        font-family: MonumentGrotesk, system-ui, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+
+        color: var(--black);
+        background-color: var(--white);
     }
 
-    code {
-        font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
-        Bitstream Vera Sans Mono, Courier New, monospace;
+    body {
+        position: relative;
+        min-height: 100dvh;
+
+        padding: 0 0 var(--footer-height) 0;
+        margin: 0;
+    }
+
+    main {
+        margin: 0 var(--page-content-padding);
+    }
+
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+
+    button {
+        cursor: pointer;
+        outline: none;
+        font-family: inherit;
+        font-size: inherit;
+        padding: 0;
+        margin: 0;
+        border: none;
+        color: inherit;
+        background-color: transparent;
+    }
+
+    /* VARIABLES */
+
+    :root {
+        --white: #FFFFFF;
+        --black: #000000;
+        --grey: #B5B4B3;
+        --primary-color: #E0878C;
+
+        --space-xs: 10px;
+        --space-s: 12px;
+        --space-m: 42px;
+        --space-l: 64px;
+        --space-xl: 104px;
+        --space-xxl: 212px;
+
+        --transition-time-short: 0.2s;
+        --transition-time-long: 0.4s;
+
+        /* Screen size responsive values */
+
+        --font-size-s: 11px;
+        --font-size-m: 17px;
+        --font-size-l: 24px;
+        --font-size-xl: 50px;
+
+        --top-bar-height: 26px;
+        --navigation-height: 60px;
+        --footer-height: 354px;
+        --page-content-padding: var(--space-xs);
+    }
+
+    @media only screen and (min-width: 601px) {
+        :root {
+            --font-size-s: 15px;
+            --font-size-m: 20px;
+
+            --top-bar-height: 50px;
+            --navigation-height: 80px;
+            --footer-height: 418px;
+            --page-content-padding: var(--space-m);
+        }
+    }
+
+    @media only screen and (min-width: 901px) {
+        :root {
+            --footer-height: 260px;
+        }
+    }
+
+    @media only screen and (min-width: 1201px) {
+        :root {
+            --footer-height: 220px;
+        }
+    }
+
+    @media only screen and (min-width: 1681px) {
+        :root {
+            --page-content-padding: calc((100vw - 1680px) / 2 + var(--space-m));
+        }
     }
 </style>

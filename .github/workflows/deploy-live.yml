@@ -1,0 +1,26 @@
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy-live:
+    runs-on: ubuntu-latest
+    steps:
+      - name: get latest code
+        uses: actions/checkout@v2
+      - name: install node
+        uses: actions/setup-node@v2
+      - name: install dependencies
+        run: npm install
+      - name: build app
+        run: astro build:prod
+        env:
+          PUBLIC_URL: ""
+      - name: sync files
+        uses: SamKirkland/FTP-Deploy-Action@4.3.2
+        with:
+          local-dir: ./dist/
+          server: web14.biohost.net
+          username: m3471ftpglen
+          password: ${{ secrets.BIOHOST_FTP_PASSWORD }}

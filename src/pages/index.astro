@@ -1,18 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro'
-import Title from '../components/Title.tsx'
+import Home from '../features/Home/Home'
 ---
 
 <Layout>
-    <main>
-        <Title text="glen was here" />
-    </main>
+    <Home client:idle />
 </Layout>
-
-<style>
-    main {
-        margin: auto;
-        padding: 1.5rem;
-        max-width: 60ch;
-    }
-</style>

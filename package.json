@@ -6,12 +6,16 @@
         "dev": "astro dev",
         "start": "astro dev",
         "build": "astro build",
+        "build:dev": "astro build --site \"https://glencoden.github.io\" --base \"/happa-website\"",
+        "build:prod": "astro build --site \"https://happa-berlin.com\"",
         "preview": "astro preview",
         "astro": "astro"
     },
     "dependencies": {
         "@astrojs/solid-js": "^2.1.1",
+        "@nanostores/solid": "^0.4.2",
         "astro": "^2.4.1",
+        "nanostores": "^0.9.3",
         "solid-js": "^1.7.5"
     }
 }

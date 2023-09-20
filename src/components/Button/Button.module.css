@@ -1,0 +1,36 @@
+.button {
+    transition-duration: var(--transition-time-short);
+}
+
+.button:hover {
+    opacity: 0.6;
+}
+
+.button:active {
+    /* TODO grow animation */
+}
+
+.buttonActive {
+    text-decoration: underline;
+}
+
+.buttonSmall {
+    font-size: var(--font-size-s);
+}
+
+.buttonRegular {
+    font-size: var(--font-size-m);
+}
+
+.buttonLarge {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: var(--font-size-m);
+
+    height: 70px;
+    padding: 0 var(--space-l);
+    border: 1px solid var(--black);
+    border-radius: 35px;
+}

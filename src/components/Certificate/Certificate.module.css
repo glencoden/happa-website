@@ -1,0 +1,28 @@
+.downloadButton {
+    white-space: nowrap;
+    text-align: left;
+}
+
+.downloadButton:hover {
+    opacity: 0.6;
+}
+
+.certificateIcon {
+    width: 48px;
+
+    margin-bottom: var(--space-s);
+}
+
+.certificateNumber {
+    display: none;
+}
+
+@media only screen and (min-width: 601px) {
+    .certificateIcon {
+        width: 80px;
+    }
+
+    .certificateNumber {
+        display: block;
+    }
+}

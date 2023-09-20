@@ -1,0 +1,17 @@
+.topBar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 100vw;
+    height: var(--top-bar-height);
+
+    font-size: var(--font-size-s);
+    background-color: var(--primary-color);
+}
+
+.topBar > p {
+    white-space: nowrap;
+    margin: 0 var(--page-content-padding);
+    color: var(--white);
+}
