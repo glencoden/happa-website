@@ -16,7 +16,7 @@ const Certificate: Component = () => {
                 class={styles.downloadButton}
             >
                 <Image
-                    imageUrl={`${import.meta.env.PUBLIC_URL}/icons/bio-certificate.svg`}
+                    imageUrl={`${import.meta.env.PUBLIC_URL}/bio-certificate.svg`}
                     className={styles.certificateIcon}
                 />
 
