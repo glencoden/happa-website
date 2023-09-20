@@ -5,7 +5,15 @@ import Footer from '../components/Footer/Footer.tsx'
 ---
 
 <script>
-    const version = '1.0.0'
+    const version = '1.1.0'
+
+    if (import.meta.env.PROD) {
+        const currentLocation = `${window.location.href}`
+
+        if (currentLocation.startsWith('http://')) {
+            window.location.href = currentLocation.replace('http://', 'https://')
+        }
+    }
 
     console.log(
         `%cglencoden ❤️ version ${version}`,
