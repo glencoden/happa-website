@@ -14,7 +14,7 @@ jobs:
       - name: install dependencies
         run: npm install
       - name: build app
-        run: astro build:prod
+        run: npm run build:prod
         env:
           PUBLIC_URL: ""
       - name: sync files
