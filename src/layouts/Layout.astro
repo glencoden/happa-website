@@ -42,10 +42,11 @@ import Footer from '../components/Footer/Footer.tsx'
     <body>
         <nav>
             <TopBar
-                client:idle
+                client:only="solid-js"
             />
+
             <Navigation
-                client:idle
+                client:only="solid-js"
                 currentPathname={Astro.url.pathname}
             />
         </nav>
