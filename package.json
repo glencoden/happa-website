@@ -13,6 +13,7 @@
     },
     "dependencies": {
         "@astrojs/solid-js": "^2.1.1",
+        "@nanostores/persistent": "^0.9.1",
         "@nanostores/solid": "^0.4.2",
         "astro": "^2.4.1",
         "nanostores": "^0.9.3",
