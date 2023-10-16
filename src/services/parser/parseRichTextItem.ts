@@ -1,4 +1,4 @@
-import type { RichTextItem } from '../../types/RichTextItem'
+import type { RichTextItem, RichTextItemMarkDef } from '../../types/RichTextItem'
 
 export const parseRichTextItem = (blockList: any): RichTextItem[] => {
     if (!Array.isArray(blockList)) {
@@ -7,13 +7,20 @@ export const parseRichTextItem = (blockList: any): RichTextItem[] => {
     }
 
     return blockList.map((block: any) => {
-        if (!Array.isArray(block.children)) {
-            console.warn('unexpected parser input:', block.children)
-            return { children: [] }
+        if (!Array.isArray(block.children) || !Array.isArray(block.markDefs)) {
+            console.warn('unexpected parser input:', block)
+            return {
+                children: [],
+                markDefs: [],
+            }
         }
 
         return {
-            children: block.children
+            children: block.children,
+            markDefs: block.markDefs.map((markDef: Partial<RichTextItemMarkDef>) => ({
+                href: markDef.href ?? '',
+                _type: markDef._type ?? '',
+            })),
         }
     })
 }

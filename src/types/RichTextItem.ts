@@ -3,6 +3,12 @@ type RichTextItemChild = {
     marks: string[],
 }
 
+export type RichTextItemMarkDef = {
+    href: string,
+    _type: string,
+}
+
 export type RichTextItem = {
     children: RichTextItemChild[]
+    markDefs: RichTextItemMarkDef[]
 }
