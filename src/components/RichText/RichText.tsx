@@ -17,8 +17,9 @@ const RenderRichTextChildren: Component<{ item: RichTextItem }> = ({ item }) => 
     return (
         <>
             <For each={item.children} fallback={<span>Loading...</span>}>
-                {(child, index) => {
+                {(child) => {
                     const classNames: string[] = []
+                    const markDefs: string[] = []
 
                     child.marks.forEach((mark: string) => {
                         switch (mark) {
@@ -26,6 +27,7 @@ const RenderRichTextChildren: Component<{ item: RichTextItem }> = ({ item }) => 
                                 classNames.push(styles.bold)
                                 break
                             default:
+                                markDefs.push(mark)
                                 break
                         }
                     })
@@ -34,7 +36,10 @@ const RenderRichTextChildren: Component<{ item: RichTextItem }> = ({ item }) => 
                         ? <>{child.text}</>
                         : <span class={classNames.join(' ')}>{child.text}</span>
 
-                    const markDef = item.markDefs[index()]
+                    // TODO: implement for the possibility of multiple markDefs
+                    const markDef = item.markDefs.find(
+                        (markDef) => markDef._key === markDefs[0]
+                    )
 
                     switch (markDef?._type) {
                         case 'link':

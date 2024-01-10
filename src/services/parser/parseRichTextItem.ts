@@ -19,6 +19,7 @@ export const parseRichTextItem = (blockList: any): RichTextItem[] => {
             children: block.children,
             markDefs: block.markDefs.map((markDef: Partial<RichTextItemMarkDef>) => ({
                 href: markDef.href ?? '',
+                _key: markDef._key ?? '',
                 _type: markDef._type ?? '',
             })),
         }

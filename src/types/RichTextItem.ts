@@ -5,6 +5,7 @@ type RichTextItemChild = {
 
 export type RichTextItemMarkDef = {
     href: string,
+    _key: string,
     _type: string,
 }
 
