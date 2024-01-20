@@ -5,7 +5,7 @@ import Footer from '../components/Footer/Footer.tsx'
 ---
 
 <script>
-    const version = '1.1.5'
+    const version = '1.1.6'
 
     if (import.meta.env.PROD) {
         const currentLocation = `${window.location.href}`
@@ -25,6 +25,12 @@ import Footer from '../components/Footer/Footer.tsx'
         background:linear-gradient(#E66465, #9198E5);`,
     );
 
+    declare global {
+        interface Window {
+            FT: any
+        }
+    }
+
     (function (d, s, id, h) {
         var ftjs = d.getElementsByTagName(s)[0]
         if (d.getElementById(id)) return
@@ -34,7 +40,7 @@ import Footer from '../components/Footer/Footer.tsx'
         h && (js.onload = h)
         ftjs.parentNode.insertBefore(js, ftjs)
     }(document, 'script', 'formitable-sdk', function () {
-        FT.load('Analytics')
+        window.FT.load('Analytics')
     }));
 </script>
 
@@ -177,7 +183,7 @@ import Footer from '../components/Footer/Footer.tsx'
 
         --top-bar-height: 26px;
         --navigation-height: 60px;
-        --footer-height: 354px;
+        --footer-height: 454px;
         --page-content-padding: var(--space-xs);
     }
 
@@ -188,20 +194,20 @@ import Footer from '../components/Footer/Footer.tsx'
 
             --top-bar-height: 50px;
             --navigation-height: 80px;
-            --footer-height: 418px;
+            --footer-height: 568px;
             --page-content-padding: var(--space-m);
         }
     }
 
     @media only screen and (min-width: 901px) {
         :root {
-            --footer-height: 260px;
+            --footer-height: 360px;
         }
     }
 
     @media only screen and (min-width: 1201px) {
         :root {
-            --footer-height: 220px;
+            --footer-height: 320px;
         }
     }
 
