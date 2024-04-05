@@ -72,8 +72,8 @@ const Navigation: Component<Props> = ({ currentPathname }) => {
                         active={currentPathname === `${import.meta.env.PUBLIC_URL}/lunch` || currentPathname === `${import.meta.env.PUBLIC_URL}/lunch/`}
                     >
                         <Text
-                            en="Lunch"
-                            de="Mittag"
+                            en="Daily"
+                            de="Tageskarte"
                         />
                     </Button>
                 </a>
