@@ -1,8 +1,8 @@
 import { Locale } from '../../enums/Locale'
-import type { AboutCarousel } from '../../types/AboutCarousel'
+import type { CarouselType } from '../../types/CarouselType'
 import { parseRichTextItem } from './parseRichTextItem'
 
-export const parseAboutCarouselResponse = (response: any): AboutCarousel | null => {
+export const parseCarouselResponse = (response: any): CarouselType | null => {
     const result = response?.result
 
     if (!Array.isArray(result) || result.length === 0) {

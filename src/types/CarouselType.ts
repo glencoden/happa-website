@@ -1,6 +1,6 @@
 import type { LocalizedRichText } from './LocalizedRichText'
 
-export type AboutCarousel = {
+export type CarouselType = {
     description: LocalizedRichText
     imageUrls: string[]
 }

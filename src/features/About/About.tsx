@@ -6,7 +6,7 @@ import ArticleDefault from '../../components/ArticleDefault/ArticleDefault'
 import Carousel from '../../components/Carousel/Carousel'
 import Image from '../../components/Image/Image'
 import { requestService } from '../../services/requestService'
-import type { AboutCarousel } from '../../types/AboutCarousel'
+import type { CarouselType } from '../../types/CarouselType'
 import type { Article } from '../../types/Article'
 import styles from './About.module.css'
 
@@ -14,7 +14,7 @@ const About: Component = () => {
     const [banner, setBanner] = createSignal<Article | null>(null)
     const [aboutNina, setAboutNina] = createSignal<Article | null>(null)
     const [aboutSophia, setAboutSophia] = createSignal<Article | null>(null)
-    const [carousel, setCarousel] = createSignal<AboutCarousel | null>(null)
+    const [carousel, setCarousel] = createSignal<CarouselType | null>(null)
     const [happaForHome, setHappaForHome] = createSignal<Article | null>(null)
 
     onMount(async () => {
