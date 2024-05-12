@@ -1,4 +1,4 @@
-import { parseAboutCarouselResponse } from './parser/parseAboutCarouselResponse'
+import { parseCarouselResponse } from './parser/parseCarouselResponse'
 import { parseArticleResponse } from './parser/parseArticleResponse'
 import { parseList } from './parser/parseList'
 import { parseMenuResponse } from './parser/parseMenuResponse'
@@ -64,6 +64,18 @@ class RequestService {
         return this._get(url).then(parseArticleResponse)
     }
 
+    getHomeCarouselData() {
+        const url = this._createSanityUrl(
+            encodeURI(`
+                *[_type == "homeCarousel"]{
+                    description,
+                    "imageUrls": images[].asset->url
+                }
+            `),
+        )
+        return this._get(url).then(parseCarouselResponse)
+    }
+
     getAboutBannerData() {
         const url = this._createSanityUrl(
             encodeURI(`
@@ -113,7 +125,7 @@ class RequestService {
                 }
             `),
         )
-        return this._get(url).then(parseAboutCarouselResponse)
+        return this._get(url).then(parseCarouselResponse)
     }
 
     getAboutHappaForHomeData() {
@@ -163,6 +175,18 @@ class RequestService {
             `),
         )
         return this._get(url).then(parseArticleResponse)
+    }
+
+    getDinnerCarouselData() {
+        const url = this._createSanityUrl(
+            encodeURI(`
+                *[_type == "dinnerCarousel"]{
+                    description,
+                    "imageUrls": images[].asset->url
+                }
+            `),
+        )
+        return this._get(url).then(parseCarouselResponse)
     }
 
     getDinnerEventsData() {
