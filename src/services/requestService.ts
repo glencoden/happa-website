@@ -4,10 +4,10 @@ import { parseList } from './parser/parseList'
 import { parseMenuResponse } from './parser/parseMenuResponse'
 import { parseTextPageResponse } from './parser/parseTextPageResponse'
 
-const projectId = 'hwz0ma01'
-const dataSet = 'production'
+const PROJECT_ID = 'hwz0ma01'
+const DATA_SET = 'production'
 
-const sanityEndpoint = `https://${projectId}.api.sanity.io/v2021-10-21/data/query/${dataSet}`
+const SANITY_ENDPOINT = `https://${PROJECT_ID}.api.sanity.io/v2021-10-21/data/query/${DATA_SET}`
 
 class RequestService {
     _get(url: string) {
@@ -17,7 +17,7 @@ class RequestService {
     }
 
     _createSanityUrl(query: string) {
-        return `${sanityEndpoint}?query=${query}`
+        return `${SANITY_ENDPOINT}?query=${query}`
     }
 
     getHomeBannerData() {

@@ -21,6 +21,6 @@ jobs:
         uses: SamKirkland/FTP-Deploy-Action@4.3.2
         with:
           local-dir: ./dist/
-          server: web14.biohost.net
-          username: m3471ftpglen
-          password: ${{ secrets.BIOHOST_FTP_PASSWORD }}
+          server: web15.greensta.de
+          username: gsi_10556_1glencoden
+          password: ${{ secrets.FTP_PASSWORD }}
