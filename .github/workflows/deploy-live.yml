@@ -21,6 +21,7 @@ jobs:
         uses: SamKirkland/FTP-Deploy-Action@4.3.2
         with:
           local-dir: ./dist/
+          protocol: ftps
           server: web15.greensta.de
           username: gsi_10556_1glencoden
           password: ${{ secrets.FTP_PASSWORD }}
