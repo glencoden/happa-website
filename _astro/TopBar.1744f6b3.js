@@ -1,0 +1,1 @@
+import{g as e,d as r,e as s,t as a}from"./web.7422b675.js";const o="_topBar_17ji2_1",c={topBar:o},n=a("<div><p>Schlesische Str. 35A, 10997 Berlin | ☎ 030 75438944"),l=()=>(()=>{const t=e(n);return r(()=>s(t,c.topBar)),t})();export{l as default};
