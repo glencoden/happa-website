@@ -36,7 +36,6 @@
     grid-area: content;
     justify-self: center;
 
-    text-align: center;
     font-size: var(--font-size-m);
     width: 70vw;
 }
@@ -75,6 +74,7 @@
 
     .content {
         justify-self: center;
+        text-align: justify;
         font-size: var(--font-size-l);
         width: 780px;
         margin-top: var(--space-xl);

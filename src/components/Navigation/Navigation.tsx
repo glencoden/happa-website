@@ -96,6 +96,15 @@ const Navigation: Component<Props> = ({ currentPathname }) => {
                     </Button>
                 </a>
 
+                <a href={`${import.meta.env.PUBLIC_URL}/private`}>
+                    <Button
+                        size={ButtonSize.Regular}
+                        active={currentPathname === `${import.meta.env.PUBLIC_URL}/private` || currentPathname === `${import.meta.env.PUBLIC_URL}/private/`}
+                    >
+                        Private Booking
+                    </Button>
+                </a>
+
                 <a href={`${import.meta.env.PUBLIC_URL}/voucher`}>
                     <Button
                         size={ButtonSize.Regular}
