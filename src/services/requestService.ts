@@ -242,6 +242,33 @@ class RequestService {
         return this._get(url).then(parseArticleResponse)
     }
 
+    getPrivateBookingBannerData() {
+        const url = this._createSanityUrl(
+            encodeURI(`
+                *[_type == "privateBookingBanner"]{
+                    title,
+                    subtitle,
+                    description,
+                    buttonText,
+                    buttonLink,
+                    "imageUrl": image.asset->url
+                }
+            `),
+        )
+        return this._get(url).then(parseArticleResponse)
+    }
+
+    getPrivateBookingCarouselData() {
+        const url = this._createSanityUrl(
+            encodeURI(`
+                *[_type == "privateBookingCarousel"]{
+                    "imageUrls": images[].asset->url
+                }
+            `),
+        )
+        return this._get(url).then(parseCarouselResponse)
+    }
+
     getVoucherData() {
         const url = this._createSanityUrl(
             encodeURI(`

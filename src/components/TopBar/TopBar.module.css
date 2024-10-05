@@ -10,7 +10,7 @@
     background-color: var(--primary-color);
 }
 
-.topBar > p {
+.topBar > p, .topBar > a {
     white-space: nowrap;
     margin: 0 var(--page-content-padding);
     color: var(--white);
