@@ -23,5 +23,5 @@ jobs:
           local-dir: ./dist/
           protocol: ftps
           server: web15.greensta.de
-          username: gsi_10556_1glencoden
+          username: gsi_10556_1_happa-berlin.com
           password: ${{ secrets.FTP_PASSWORD }}
