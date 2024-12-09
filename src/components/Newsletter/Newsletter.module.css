@@ -1,30 +1,11 @@
-.newsletter {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-s) var(--space-m);
-}
-
 .infoText {
-    flex-basis: 21%;
-    flex-grow: 0.9;
     margin: 0;
 }
 
-.form {
-    flex-basis: max(432px, 70%);
-    flex-grow: 1;
-}
-
-.emailInput {
-    width: 100%;
-    font-family: inherit;
-    font-size: inherit;
-    padding: 0 var(--space-s);
-    margin-bottom: var(--space-s);
-}
-
 .submitButton {
-    float: right;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 40%;
     border-radius: 29px;
 
@@ -35,7 +16,7 @@
     font-family: inherit;
     font-size: inherit;
     padding: 0;
-    margin: 0;
+    margin: var(--space-s) 0 0 0;
     border: none;
     color: inherit;
     background-color: transparent;
@@ -45,19 +26,13 @@
     opacity: 0.6;
 }
 
-.emailInput, .submitButton {
+.submitButton {
     height: 34px;
     border: 1px solid var(--black);
 }
 
 @media only screen and (min-width: 601px) {
-    .emailInput, .submitButton {
+    .submitButton {
         height: 58px;
-    }
-}
-
-@media only screen and (min-width: 1201px) {
-    .newsletter {
-        gap: var(--space-m);
     }
 }
