@@ -1,4 +1,6 @@
+import { useStore } from '@nanostores/solid'
 import type { Component } from 'solid-js'
+import { isMenuOpen } from '../../store'
 import Burger from '../Burger/Burger'
 import Button, { ButtonSize } from '../Button/Button'
 import Image from '../Image/Image'
@@ -6,8 +8,6 @@ import Link from '../Link/Link'
 import LocaleToggle from '../LocaleToggle/LocaleToggle'
 import Text from '../Text/Text'
 import styles from './Navigation.module.css'
-import { useStore } from '@nanostores/solid'
-import { isMenuOpen } from '../../store'
 
 type Props = {
     currentPathname: string
@@ -18,15 +18,19 @@ const Navigation: Component<Props> = ({ currentPathname }) => {
 
     return (
         <div class={styles.navigation}>
-            <div classList={{
-                [styles.overlay]: true,
-                [styles.showOverlay]: $isMenuOpen(),
-            }} />
+            <div
+                classList={{
+                    [styles.overlay]: true,
+                    [styles.showOverlay]: $isMenuOpen(),
+                }}
+            />
 
-            <div classList={{
-                [styles.logoBox]: true,
-                [styles.invertColor]: $isMenuOpen(),
-            }}>
+            <div
+                classList={{
+                    [styles.logoBox]: true,
+                    [styles.invertColor]: $isMenuOpen(),
+                }}
+            >
                 <a href={`${import.meta.env.PUBLIC_URL}/`}>
                     <Button size={ButtonSize.Regular}>
                         <Image
@@ -37,10 +41,12 @@ const Navigation: Component<Props> = ({ currentPathname }) => {
                 </a>
             </div>
 
-            <div classList={{
-                [styles.burgerBox]: true,
-                [styles.invertColor]: $isMenuOpen(),
-            }}>
+            <div
+                classList={{
+                    [styles.burgerBox]: true,
+                    [styles.invertColor]: $isMenuOpen(),
+                }}
+            >
                 <Button
                     size={ButtonSize.Regular}
                     onClick={() => isMenuOpen.set(!$isMenuOpen())}
@@ -49,39 +55,50 @@ const Navigation: Component<Props> = ({ currentPathname }) => {
                 </Button>
             </div>
 
-            <div classList={{
-                [styles.navItemsBox]: true,
-                [styles.showNavItemsBox]: $isMenuOpen(),
-                [styles.invertColor]: $isMenuOpen(),
-            }}>
+            <div
+                classList={{
+                    [styles.navItemsBox]: true,
+                    [styles.showNavItemsBox]: $isMenuOpen(),
+                    [styles.invertColor]: $isMenuOpen(),
+                }}
+            >
                 <a href={`${import.meta.env.PUBLIC_URL}/about`}>
                     <Button
                         size={ButtonSize.Regular}
-                        active={currentPathname === `${import.meta.env.PUBLIC_URL}/about` || currentPathname === `${import.meta.env.PUBLIC_URL}/about/`}
+                        active={
+                            currentPathname ===
+                                `${import.meta.env.PUBLIC_URL}/about` ||
+                            currentPathname ===
+                                `${import.meta.env.PUBLIC_URL}/about/`
+                        }
                     >
-                        <Text
-                            en="About"
-                            de="Über uns"
-                        />
+                        <Text en='About' de='Über uns' />
                     </Button>
                 </a>
 
                 <a href={`${import.meta.env.PUBLIC_URL}/lunch`}>
                     <Button
                         size={ButtonSize.Regular}
-                        active={currentPathname === `${import.meta.env.PUBLIC_URL}/lunch` || currentPathname === `${import.meta.env.PUBLIC_URL}/lunch/`}
+                        active={
+                            currentPathname ===
+                                `${import.meta.env.PUBLIC_URL}/lunch` ||
+                            currentPathname ===
+                                `${import.meta.env.PUBLIC_URL}/lunch/`
+                        }
                     >
-                        <Text
-                            en="Daily"
-                            de="Tageskarte"
-                        />
+                        <Text en='Lunch' de='Mittagskarte' />
                     </Button>
                 </a>
 
                 <a href={`${import.meta.env.PUBLIC_URL}/dinner`}>
                     <Button
                         size={ButtonSize.Regular}
-                        active={currentPathname === `${import.meta.env.PUBLIC_URL}/dinner` || currentPathname === `${import.meta.env.PUBLIC_URL}/dinner/`}
+                        active={
+                            currentPathname ===
+                                `${import.meta.env.PUBLIC_URL}/dinner` ||
+                            currentPathname ===
+                                `${import.meta.env.PUBLIC_URL}/dinner/`
+                        }
                     >
                         Dinner
                     </Button>
@@ -90,7 +107,12 @@ const Navigation: Component<Props> = ({ currentPathname }) => {
                 <a href={`${import.meta.env.PUBLIC_URL}/events`}>
                     <Button
                         size={ButtonSize.Regular}
-                        active={currentPathname === `${import.meta.env.PUBLIC_URL}/events` || currentPathname === `${import.meta.env.PUBLIC_URL}/events/`}
+                        active={
+                            currentPathname ===
+                                `${import.meta.env.PUBLIC_URL}/events` ||
+                            currentPathname ===
+                                `${import.meta.env.PUBLIC_URL}/events/`
+                        }
                     >
                         Events
                     </Button>
@@ -99,7 +121,12 @@ const Navigation: Component<Props> = ({ currentPathname }) => {
                 <a href={`${import.meta.env.PUBLIC_URL}/private`}>
                     <Button
                         size={ButtonSize.Regular}
-                        active={currentPathname === `${import.meta.env.PUBLIC_URL}/private` || currentPathname === `${import.meta.env.PUBLIC_URL}/private/`}
+                        active={
+                            currentPathname ===
+                                `${import.meta.env.PUBLIC_URL}/private` ||
+                            currentPathname ===
+                                `${import.meta.env.PUBLIC_URL}/private/`
+                        }
                     >
                         Private Booking
                     </Button>
@@ -108,34 +135,40 @@ const Navigation: Component<Props> = ({ currentPathname }) => {
                 <a href={`${import.meta.env.PUBLIC_URL}/voucher`}>
                     <Button
                         size={ButtonSize.Regular}
-                        active={currentPathname === `${import.meta.env.PUBLIC_URL}/voucher` || currentPathname === `${import.meta.env.PUBLIC_URL}/voucher/`}
+                        active={
+                            currentPathname ===
+                                `${import.meta.env.PUBLIC_URL}/voucher` ||
+                            currentPathname ===
+                                `${import.meta.env.PUBLIC_URL}/voucher/`
+                        }
                     >
-                        <Text
-                            en="Vouchers"
-                            de="Gutscheine"
-                        />
+                        <Text en='Vouchers' de='Gutscheine' />
                     </Button>
                 </a>
 
                 <a href={`${import.meta.env.PUBLIC_URL}/partner`}>
                     <Button
                         size={ButtonSize.Regular}
-                        active={currentPathname === `${import.meta.env.PUBLIC_URL}/partner` || currentPathname === `${import.meta.env.PUBLIC_URL}/partner/`}
+                        active={
+                            currentPathname ===
+                                `${import.meta.env.PUBLIC_URL}/partner` ||
+                            currentPathname ===
+                                `${import.meta.env.PUBLIC_URL}/partner/`
+                        }
                     >
-                        <Text
-                            en="Partners"
-                            de="Partner"
-                        />
+                        <Text en='Partners' de='Partner' />
                     </Button>
                 </a>
             </div>
 
-            <div classList={{
-                [styles.socialIconsBox]: true,
-                [styles.showSocialIconsBox]: $isMenuOpen(),
-                [styles.invertColor]: $isMenuOpen(),
-            }}>
-                <Link linkUrl="https://www.instagram.com/happa_restaurant">
+            <div
+                classList={{
+                    [styles.socialIconsBox]: true,
+                    [styles.showSocialIconsBox]: $isMenuOpen(),
+                    [styles.invertColor]: $isMenuOpen(),
+                }}
+            >
+                <Link linkUrl='https://www.instagram.com/happa_restaurant'>
                     <Button size={ButtonSize.Small}>
                         <Image
                             imageUrl={`${import.meta.env.PUBLIC_URL}/insta.svg`}
@@ -144,10 +177,12 @@ const Navigation: Component<Props> = ({ currentPathname }) => {
                     </Button>
                 </Link>
 
-                <Link linkUrl="https://www.facebook.com/happaberlin">
+                <Link linkUrl='https://www.facebook.com/happaberlin'>
                     <Button size={ButtonSize.Small}>
                         <Image
-                            imageUrl={`${import.meta.env.PUBLIC_URL}/facebook.svg`}
+                            imageUrl={`${
+                                import.meta.env.PUBLIC_URL
+                            }/facebook.svg`}
                             width={18}
                         />
                     </Button>
