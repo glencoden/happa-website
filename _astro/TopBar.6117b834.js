@@ -1,0 +1,1 @@
+import{g as t,d as a,e as r,t as o}from"./web.7422b675.js";const s="_topBar_17ji2_1",n={topBar:s},p=o('<div><p>Schlesische Str. 35A, 10997 Berlin  | <a href="tel:+493075438944">☎ 030 75438944</a> | <a href="mailto:info@happa-berlin.com">info@happa-berlin.com'),c=()=>(()=>{const e=t(p);return a(()=>r(e,n.topBar)),e})();export{c as default};
