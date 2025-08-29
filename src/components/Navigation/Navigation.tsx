@@ -86,7 +86,7 @@ const Navigation: Component<Props> = ({ currentPathname }) => {
                                 `${import.meta.env.PUBLIC_URL}/lunch/`
                         }
                     >
-                        <Text en='Lunch' de='Mittagskarte' />
+                        <Text en='Menu' de='Menü' />
                     </Button>
                 </a>
 
