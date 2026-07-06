@@ -10,10 +10,14 @@ const DATA_SET = 'production'
 const SANITY_ENDPOINT = `https://${PROJECT_ID}.api.sanity.io/v2021-10-21/data/query/${DATA_SET}`
 
 class RequestService {
-    _get(url: string) {
-        return fetch(url)
-            .then(response => response.json())
-            .catch(console.error)
+    async _get(url: string) {
+        const response = await fetch(url)
+
+        if (!response.ok) {
+            throw new Error(`Sanity request failed with status ${response.status}`)
+        }
+
+        return response.json()
     }
 
     _createSanityUrl(query: string) {
