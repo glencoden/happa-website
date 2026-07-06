@@ -1,56 +1,41 @@
-import { createSignal, For, onMount, Show } from 'solid-js'
+import { For, Show } from 'solid-js'
 import type { Component } from 'solid-js'
 import ArticleBanner from '../../components/ArticleBanner/ArticleBanner'
 import Carousel from '../../components/Carousel/Carousel'
 import Image from '../../components/Image/Image'
-import { requestService } from '../../services/requestService'
-import type { Article } from '../../types/Article'
-import type { CarouselType } from '../../types/CarouselType'
+import type { BakedArticle } from '../../types/BakedArticle'
+import type { BakedCarousel } from '../../types/BakedCarousel'
 import styles from '../About/About.module.css'
 
-const Private: Component = () => {
-    const [banner, setBanner] = createSignal<Article | null>(null)
-    const [carousel, setCarousel] = createSignal<CarouselType | null>(null)
+type Props = {
+    banner: BakedArticle
+    carousel: BakedCarousel
+}
 
-    onMount(async () => {
-        try {
-            const banner = await requestService.getPrivateBookingBannerData()
-            setBanner(banner)
-
-            const carousel = await requestService.getPrivateBookingCarouselData()
-            setCarousel(carousel)
-        } catch (error) {
-            console.error(error)
-        }
-    })
-
+const Private: Component<Props> = (props) => {
     return (
         <>
-            <Show when={banner() !== null && banner()!.subtitle !== null}>
+            <Show when={props.banner.subtitle !== null}>
                 <ArticleBanner
-                    title={banner()!.title}
-                    subtitle={banner()!.subtitle!}
-                    content={banner()!.content}
-                    linkText={banner()!.buttonText!}
-                    linkUrl={banner()!.buttonLink!}
-                    imageUrl={banner()!.imageUrl}
+                    title={props.banner.title}
+                    subtitle={props.banner.subtitle!}
+                    content={props.banner.content}
+                    linkText={props.banner.buttonText!}
+                    linkUrl={props.banner.buttonLink!}
+                    image={props.banner.image}
                 />
             </Show>
 
-            <Show when={carousel() !== null}>
-                <Carousel
-                    description={carousel()!.description}
-                >
-                    <For each={carousel()!.imageUrls}>
-                        {(imageUrl) => (
-                            <Image
-                                imageUrl={imageUrl}
-                                className={styles.aboutCarouselImage}
-                            />
-                        )}
-                    </For>
-                </Carousel>
-            </Show>
+            <Carousel description={props.carousel.description}>
+                <For each={props.carousel.images}>
+                    {(image) => (
+                        <Image
+                            image={image}
+                            className={styles.aboutCarouselImage}
+                        />
+                    )}
+                </For>
+            </Carousel>
         </>
     )
 }

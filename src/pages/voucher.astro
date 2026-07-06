@@ -1,8 +1,14 @@
 ---
 import Layout from '../layouts/Layout.astro'
 import Voucher from '../features/Voucher/Voucher'
+import { requestService } from '../services/requestService'
+import { assertData } from '../services/assertData'
+import { bakeArticle } from '../services/bakeService'
+
+const banner = await bakeArticle(assertData(await requestService.getVoucherData(), 'voucher'))
 ---
 
 <Layout>
-    <Voucher client:idle />
+    <Voucher client:idle banner={banner} />
 </Layout>
+

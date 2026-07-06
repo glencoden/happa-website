@@ -1,8 +1,15 @@
 ---
 import Layout from '../layouts/Layout.astro'
 import Private from '../features/Private/Private'
+import { requestService } from '../services/requestService'
+import { assertData } from '../services/assertData'
+import { bakeArticle, bakeCarousel } from '../services/bakeService'
+
+const banner = await bakeArticle(assertData(await requestService.getPrivateBookingBannerData(), 'privateBookingBanner'))
+const carousel = await bakeCarousel(assertData(await requestService.getPrivateBookingCarouselData(), 'privateBookingCarousel'))
 ---
 
 <Layout>
-    <Private client:idle />
+    <Private client:idle banner={banner} carousel={carousel} />
 </Layout>
+

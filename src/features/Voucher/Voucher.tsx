@@ -1,34 +1,24 @@
-import { createSignal, onMount, Show } from 'solid-js'
+import { Show } from 'solid-js'
 import type { Component } from 'solid-js'
 import ArticleBanner from '../../components/ArticleBanner/ArticleBanner'
-import { requestService } from '../../services/requestService'
-import type { Article } from '../../types/Article'
+import type { BakedArticle } from '../../types/BakedArticle'
 
-const Voucher: Component = () => {
-    const [banner, setBanner] = createSignal<Article | null>(null)
+type Props = {
+    banner: BakedArticle
+}
 
-    onMount(async () => {
-        try {
-            const banner = await requestService.getVoucherData()
-            setBanner(banner)
-        } catch (error) {
-            console.error(error)
-        }
-    })
-
+const Voucher: Component<Props> = (props) => {
     return (
-        <>
-            <Show when={banner() !== null && banner()!.subtitle !== null}>
-                <ArticleBanner
-                    title={banner()!.title}
-                    subtitle={banner()!.subtitle!}
-                    content={banner()!.content}
-                    linkText={banner()!.buttonText!}
-                    linkUrl={banner()!.buttonLink!}
-                    imageUrl={banner()!.imageUrl}
-                />
-            </Show>
-        </>
+        <Show when={props.banner.subtitle !== null}>
+            <ArticleBanner
+                title={props.banner.title}
+                subtitle={props.banner.subtitle!}
+                content={props.banner.content}
+                linkText={props.banner.buttonText!}
+                linkUrl={props.banner.buttonLink!}
+                image={props.banner.image}
+            />
+        </Show>
     )
 }
 
