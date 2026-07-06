@@ -13,7 +13,7 @@ const Footer: Component<Props> = ({ currentPathname }) => {
     return (
         <footer class={styles.footer}>
             <Image
-                imageUrl={`${import.meta.env.PUBLIC_URL}/smiley.svg`}
+                image={{ src: `${import.meta.env.PUBLIC_URL}/smiley.svg`, srcSet: '' }}
                 className={styles.smiley}
             />
 

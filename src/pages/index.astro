@@ -1,8 +1,22 @@
 ---
 import Layout from '../layouts/Layout.astro'
 import Home from '../features/Home/Home'
+import { requestService } from '../services/requestService'
+import { assertData } from '../services/assertData'
+import { bakeArticle, bakeCarousel } from '../services/bakeService'
+
+const banner = await bakeArticle(assertData(await requestService.getHomeBannerData(), 'homeBanner'))
+const lunchSection = await bakeArticle(assertData(await requestService.getHomeLunchSectionData(), 'homeLunchSection'))
+const dinnerSection = await bakeArticle(assertData(await requestService.getHomeDinnerSectionData(), 'homeDinnerSection'))
+const carousel = await bakeCarousel(assertData(await requestService.getHomeCarouselData(), 'homeCarousel'))
 ---
 
 <Layout>
-    <Home client:idle />
+    <Home
+        client:idle
+        banner={banner}
+        lunchSection={lunchSection}
+        dinnerSection={dinnerSection}
+        carousel={carousel}
+    />
 </Layout>

@@ -1,5 +1,6 @@
 import type { Component } from 'solid-js'
 import { Show } from 'solid-js'
+import type { BakedImage } from '../../types/BakedImage'
 import type { LocalizedRichText } from '../../types/LocalizedRichText'
 import type { LocalizedString } from '../../types/LocalizedString'
 import Button, { ButtonSize } from '../Button/Button'
@@ -11,7 +12,7 @@ import Text from '../Text/Text'
 import styles from './ArticleDefault.module.css'
 
 type Props = {
-    imageUrl: string
+    image: BakedImage
     title: LocalizedString
     date?: string
     content?: LocalizedRichText
@@ -30,7 +31,7 @@ const ArticleDefault: Component<Props> = (props) => {
         }}>
             <Image
                 className={styles.image}
-                imageUrl={props.imageUrl}
+                image={props.image}
             />
 
             <div classList={{

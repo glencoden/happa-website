@@ -1,5 +1,6 @@
 import { Show } from 'solid-js'
 import type { Component } from 'solid-js'
+import type { BakedImage } from '../../types/BakedImage'
 import type { LocalizedRichText } from '../../types/LocalizedRichText'
 import type { LocalizedString } from '../../types/LocalizedString'
 import Button, { ButtonSize } from '../Button/Button'
@@ -15,7 +16,7 @@ type Props = {
     content?: LocalizedRichText
     linkText?: LocalizedString
     linkUrl?: string
-    imageUrl: string
+    image: BakedImage
 }
 
 // TODO separate content from link conditional render in ll. 42-56
@@ -35,7 +36,7 @@ const ArticleBanner: Component<Props> = (props) => {
 
             <Image
                 className={styles.image}
-                imageUrl={props.imageUrl}
+                image={props.image}
             />
 
             <Show when={props.content !== undefined}>

@@ -34,7 +34,7 @@ const Navigation: Component<Props> = ({ currentPathname }) => {
                 <a href={`${import.meta.env.PUBLIC_URL}/`}>
                     <Button size={ButtonSize.Regular}>
                         <Image
-                            imageUrl={`${import.meta.env.PUBLIC_URL}/logo.svg`}
+                            image={{ src: `${import.meta.env.PUBLIC_URL}/logo.svg`, srcSet: '' }}
                             className={styles.logo}
                         />
                     </Button>
@@ -171,7 +171,7 @@ const Navigation: Component<Props> = ({ currentPathname }) => {
                 <Link linkUrl='https://www.instagram.com/happa_restaurant'>
                     <Button size={ButtonSize.Small}>
                         <Image
-                            imageUrl={`${import.meta.env.PUBLIC_URL}/insta.svg`}
+                            image={{ src: `${import.meta.env.PUBLIC_URL}/insta.svg`, srcSet: '' }}
                             width={18}
                         />
                     </Button>
@@ -180,9 +180,7 @@ const Navigation: Component<Props> = ({ currentPathname }) => {
                 <Link linkUrl='https://www.facebook.com/happaberlin'>
                     <Button size={ButtonSize.Small}>
                         <Image
-                            imageUrl={`${
-                                import.meta.env.PUBLIC_URL
-                            }/facebook.svg`}
+                            image={{ src: `${import.meta.env.PUBLIC_URL}/facebook.svg`, srcSet: '' }}
                             width={18}
                         />
                     </Button>

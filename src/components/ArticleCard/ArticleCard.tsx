@@ -1,5 +1,6 @@
 import type { Component } from 'solid-js'
 import { Show } from 'solid-js'
+import type { BakedImage } from '../../types/BakedImage'
 import type { LocalizedRichText } from '../../types/LocalizedRichText'
 import type { LocalizedString } from '../../types/LocalizedString'
 import Image from '../Image/Image'
@@ -9,7 +10,7 @@ import Text from '../Text/Text'
 import styles from './ArticleCard.module.css'
 
 type Props = {
-    imageUrl: string
+    image: BakedImage
     title: LocalizedString
     content?: LocalizedRichText
     linkUrl?: string
@@ -20,7 +21,7 @@ const ArticleCard: Component<Props> = (props) => {
         <>
             <Image
                 className={styles.image}
-                imageUrl={props.imageUrl}
+                image={props.image}
             />
 
             <div class={styles.textBox}>

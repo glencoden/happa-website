@@ -1,84 +1,63 @@
-import { createSignal, For, onMount, Show } from 'solid-js'
+import { For, Show } from 'solid-js'
 import type { Component } from 'solid-js'
 import ArticleBanner from '../../components/ArticleBanner/ArticleBanner'
 import ArticleDefault from '../../components/ArticleDefault/ArticleDefault'
 import Carousel from '../../components/Carousel/Carousel'
 import Image from '../../components/Image/Image'
-import { requestService } from '../../services/requestService'
-import type { Article } from '../../types/Article'
-import type { CarouselType } from '../../types/CarouselType'
+import type { BakedArticle } from '../../types/BakedArticle'
+import type { BakedCarousel } from '../../types/BakedCarousel'
 import styles from '../About/About.module.css'
 
-const Home: Component = () => {
-    const [banner, setBanner] = createSignal<Article | null>(null)
-    const [lunchSection, setLunchSection] = createSignal<Article | null>(null)
-    const [dinnerSection, setDinnerSection] = createSignal<Article | null>(null)
-    const [carousel, setCarousel] = createSignal<CarouselType | null>(null)
+type Props = {
+    banner: BakedArticle
+    lunchSection: BakedArticle
+    dinnerSection: BakedArticle
+    carousel: BakedCarousel
+}
 
-    onMount(async () => {
-        try {
-            const banner = await requestService.getHomeBannerData()
-            setBanner(banner)
-
-            const lunchSection = await requestService.getHomeLunchSectionData()
-            setLunchSection(lunchSection)
-
-            const dinnerSection = await requestService.getHomeDinnerSectionData()
-            setDinnerSection(dinnerSection)
-
-            const carousel = await requestService.getHomeCarouselData()
-            setCarousel(carousel)
-        } catch (error) {
-            console.error(error)
-        }
-    })
-
+const Home: Component<Props> = (props) => {
     return (
         <>
-            <Show when={banner() !== null && banner()!.subtitle !== null}>
+            <Show when={props.banner.subtitle !== null}>
                 <ArticleBanner
-                    title={banner()!.title}
-                    subtitle={banner()!.subtitle!}
-                    content={banner()!.content}
-                    imageUrl={banner()!.imageUrl}
+                    title={props.banner.title}
+                    subtitle={props.banner.subtitle!}
+                    content={props.banner.content}
+                    image={props.banner.image}
                 />
             </Show>
 
-            <Show when={lunchSection() !== null && lunchSection()!.buttonText !== null && lunchSection()!.buttonLink !== null}>
+            <Show when={props.lunchSection.buttonText !== null && props.lunchSection.buttonLink !== null}>
                 <ArticleDefault
-                    imageUrl={lunchSection()!.imageUrl}
-                    title={lunchSection()!.title}
-                    content={lunchSection()!.content}
-                    linkText={lunchSection()!.buttonText!}
-                    linkUrl={lunchSection()!.buttonLink!}
+                    image={props.lunchSection.image}
+                    title={props.lunchSection.title}
+                    content={props.lunchSection.content}
+                    linkText={props.lunchSection.buttonText!}
+                    linkUrl={props.lunchSection.buttonLink!}
                 />
             </Show>
 
-            <Show when={dinnerSection() !== null && dinnerSection()!.buttonText !== null && dinnerSection()!.buttonLink !== null}>
+            <Show when={props.dinnerSection.buttonText !== null && props.dinnerSection.buttonLink !== null}>
                 <ArticleDefault
-                    imageUrl={dinnerSection()!.imageUrl}
-                    title={dinnerSection()!.title}
-                    content={dinnerSection()!.content}
-                    linkText={dinnerSection()!.buttonText!}
-                    linkUrl={dinnerSection()!.buttonLink!}
+                    image={props.dinnerSection.image}
+                    title={props.dinnerSection.title}
+                    content={props.dinnerSection.content}
+                    linkText={props.dinnerSection.buttonText!}
+                    linkUrl={props.dinnerSection.buttonLink!}
                     reverse={true}
                 />
             </Show>
 
-            <Show when={carousel() !== null}>
-                <Carousel
-                    description={carousel()!.description}
-                >
-                    <For each={carousel()!.imageUrls}>
-                        {(imageUrl) => (
-                            <Image
-                                imageUrl={imageUrl}
-                                className={styles.aboutCarouselImage}
-                            />
-                        )}
-                    </For>
-                </Carousel>
-            </Show>
+            <Carousel description={props.carousel.description}>
+                <For each={props.carousel.images}>
+                    {(image) => (
+                        <Image
+                            image={image}
+                            className={styles.aboutCarouselImage}
+                        />
+                    )}
+                </For>
+            </Carousel>
         </>
     )
 }
