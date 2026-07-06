@@ -1,8 +1,15 @@
 ---
 import Layout from '../layouts/Layout.astro'
 import Lunch from '../features/Lunch/Lunch'
+import { requestService } from '../services/requestService'
+import { assertData } from '../services/assertData'
+import { bakeArticle } from '../services/bakeService'
+
+const menu = assertData(await requestService.getLunchMenuData(), 'lunchMenu')
+const description = await bakeArticle(assertData(await requestService.getLunchDescriptionData(), 'lunchDescription'))
 ---
 
 <Layout>
-    <Lunch client:idle />
+    <Lunch client:idle menu={menu} description={description} />
 </Layout>
+
