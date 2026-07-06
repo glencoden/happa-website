@@ -1,6 +1,9 @@
 # build output
 dist/
 
+# local specs and plans
+/docs/
+
 # generated types
 .astro/
 
