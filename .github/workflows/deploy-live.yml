@@ -1,24 +1,30 @@
+name: deploy-live
+
 on:
   push:
     branches:
       - main
+  workflow_dispatch:
 
 jobs:
   deploy-live:
     runs-on: ubuntu-latest
     steps:
       - name: get latest code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
+      - name: install pnpm
+        uses: pnpm/action-setup@v4
       - name: install node
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
       - name: install dependencies
-        run: npm install
+        run: pnpm install --frozen-lockfile
       - name: build app
-        run: npm run build:prod
-        env:
-          PUBLIC_URL: ""
+        run: pnpm build
       - name: sync files
-        uses: SamKirkland/FTP-Deploy-Action@4.3.2
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           local-dir: ./dist/
           protocol: ftps
