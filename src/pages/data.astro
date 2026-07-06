@@ -1,8 +1,12 @@
 ---
 import Layout from '../layouts/Layout.astro'
-import DataProtection from '../features/DataProtection/DataProtection'
+import TextPage from '../components/TextPage/TextPage'
+import { requestService } from '../services/requestService'
+import { assertData } from '../services/assertData'
+
+const data = assertData(await requestService.getDataProtectionData(), 'dataProtection')
 ---
 
 <Layout>
-    <DataProtection client:idle />
+    <TextPage client:idle title={data.title} text={data.text} />
 </Layout>
