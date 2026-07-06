@@ -25,14 +25,14 @@ jobs:
         run: pnpm build
       - name: inspect ftp root
         run: |
-          echo "--- root listing ---"
-          curl -s --ssl-reqd --list-only -u "gsi_10556_1_happa-berlin.com:${{ secrets.FTP_PASSWORD }}" ftp://web15.greensta.de/ || true
-          echo "--- sync state file (first 40 lines) ---"
-          curl -s --ssl-reqd -u "gsi_10556_1_happa-berlin.com:${{ secrets.FTP_PASSWORD }}" ftp://web15.greensta.de/.ftp-deploy-sync-state.json | head -40 || true
-          echo "--- attempt mkdir _astro ---"
-          curl -s --ssl-reqd -u "gsi_10556_1_happa-berlin.com:${{ secrets.FTP_PASSWORD }}" -Q "MKD _astro" ftp://web15.greensta.de/ -v 2>&1 | grep -E "^(< |> )" || true
-          echo "--- listing after mkdir attempt ---"
-          curl -s --ssl-reqd --list-only -u "gsi_10556_1_happa-berlin.com:${{ secrets.FTP_PASSWORD }}" ftp://web15.greensta.de/ || true
+          echo "--- web/ listing ---"
+          curl -s --ssl-reqd --list-only -u "gsi_10556_1_happa-berlin.com:${{ secrets.FTP_PASSWORD }}" ftp://web15.greensta.de/web/ || true
+          echo "--- sync state file in web/ (first 40 lines) ---"
+          curl -s --ssl-reqd -u "gsi_10556_1_happa-berlin.com:${{ secrets.FTP_PASSWORD }}" ftp://web15.greensta.de/web/.ftp-deploy-sync-state.json | head -40 || true
+          echo "--- attempt mkdir web/_astro_probe ---"
+          curl -s --ssl-reqd -u "gsi_10556_1_happa-berlin.com:${{ secrets.FTP_PASSWORD }}" -Q "MKD web/_astro_probe" ftp://web15.greensta.de/ -v 2>&1 | grep -E "^(< |> )" || true
+          echo "--- cleanup probe dir ---"
+          curl -s --ssl-reqd -u "gsi_10556_1_happa-berlin.com:${{ secrets.FTP_PASSWORD }}" -Q "RMD web/_astro_probe" ftp://web15.greensta.de/ -v 2>&1 | grep -E "^(< |> )" || true
       - name: sync files
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
