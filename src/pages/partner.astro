@@ -1,8 +1,17 @@
 ---
 import Layout from '../layouts/Layout.astro'
 import Partner from '../features/Partner/Partner'
+import { requestService } from '../services/requestService'
+import { assertData } from '../services/assertData'
+import { bakeArticle } from '../services/bakeService'
+import type { Article } from '../types/Article'
+
+const banner = await bakeArticle(assertData(await requestService.getPartnerBannerData(), 'partnerBanner'))
+const partnersData = assertData(await requestService.getPartnersData(), 'partners')
+    .filter((partner): partner is Article => partner !== null)
+const partners = await Promise.all(partnersData.map(bakeArticle))
 ---
 
 <Layout>
-    <Partner client:idle />
+    <Partner client:idle banner={banner} partners={partners} />
 </Layout>
