@@ -1,5 +1,9 @@
 name: deploy-live
 
+concurrency:
+  group: deploy-live
+  cancel-in-progress: false
+
 on:
   push:
     branches:

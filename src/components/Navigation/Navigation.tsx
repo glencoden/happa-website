@@ -31,10 +31,10 @@ const Navigation: Component<Props> = ({ currentPathname }) => {
                     [styles.invertColor]: $isMenuOpen(),
                 }}
             >
-                <a href={`${import.meta.env.PUBLIC_URL}/`}>
+                <a href='/'>
                     <Button size={ButtonSize.Regular}>
                         <Image
-                            image={{ src: `${import.meta.env.PUBLIC_URL}/logo.svg`, srcSet: '' }}
+                            image={{ src: '/logo.svg', srcSet: '' }}
                             className={styles.logo}
                         />
                     </Button>
@@ -62,98 +62,84 @@ const Navigation: Component<Props> = ({ currentPathname }) => {
                     [styles.invertColor]: $isMenuOpen(),
                 }}
             >
-                <a href={`${import.meta.env.PUBLIC_URL}/about`}>
+                <a href='/about'>
                     <Button
                         size={ButtonSize.Regular}
                         active={
-                            currentPathname ===
-                                `${import.meta.env.PUBLIC_URL}/about` ||
-                            currentPathname ===
-                                `${import.meta.env.PUBLIC_URL}/about/`
+                            currentPathname === '/about' ||
+                            currentPathname === '/about/'
                         }
                     >
                         <Text en='About' de='Über uns' />
                     </Button>
                 </a>
 
-                <a href={`${import.meta.env.PUBLIC_URL}/lunch`}>
+                <a href='/lunch'>
                     <Button
                         size={ButtonSize.Regular}
                         active={
-                            currentPathname ===
-                                `${import.meta.env.PUBLIC_URL}/lunch` ||
-                            currentPathname ===
-                                `${import.meta.env.PUBLIC_URL}/lunch/`
+                            currentPathname === '/lunch' ||
+                            currentPathname === '/lunch/'
                         }
                     >
                         <Text en='Menu' de='Menü' />
                     </Button>
                 </a>
 
-                <a href={`${import.meta.env.PUBLIC_URL}/dinner`}>
+                <a href='/dinner'>
                     <Button
                         size={ButtonSize.Regular}
                         active={
-                            currentPathname ===
-                                `${import.meta.env.PUBLIC_URL}/dinner` ||
-                            currentPathname ===
-                                `${import.meta.env.PUBLIC_URL}/dinner/`
+                            currentPathname === '/dinner' ||
+                            currentPathname === '/dinner/'
                         }
                     >
                         Dinner
                     </Button>
                 </a>
 
-                <a href={`${import.meta.env.PUBLIC_URL}/events`}>
+                <a href='/events'>
                     <Button
                         size={ButtonSize.Regular}
                         active={
-                            currentPathname ===
-                                `${import.meta.env.PUBLIC_URL}/events` ||
-                            currentPathname ===
-                                `${import.meta.env.PUBLIC_URL}/events/`
+                            currentPathname === '/events' ||
+                            currentPathname === '/events/'
                         }
                     >
                         Events
                     </Button>
                 </a>
 
-                <a href={`${import.meta.env.PUBLIC_URL}/private`}>
+                <a href='/private'>
                     <Button
                         size={ButtonSize.Regular}
                         active={
-                            currentPathname ===
-                                `${import.meta.env.PUBLIC_URL}/private` ||
-                            currentPathname ===
-                                `${import.meta.env.PUBLIC_URL}/private/`
+                            currentPathname === '/private' ||
+                            currentPathname === '/private/'
                         }
                     >
                         Private Booking
                     </Button>
                 </a>
 
-                <a href={`${import.meta.env.PUBLIC_URL}/voucher`}>
+                <a href='/voucher'>
                     <Button
                         size={ButtonSize.Regular}
                         active={
-                            currentPathname ===
-                                `${import.meta.env.PUBLIC_URL}/voucher` ||
-                            currentPathname ===
-                                `${import.meta.env.PUBLIC_URL}/voucher/`
+                            currentPathname === '/voucher' ||
+                            currentPathname === '/voucher/'
                         }
                     >
                         <Text en='Vouchers' de='Gutscheine' />
                     </Button>
                 </a>
 
-                <a href={`${import.meta.env.PUBLIC_URL}/partner`}>
+                <a href='/partner'>
                     <Button
                         size={ButtonSize.Regular}
                         active={
-                            currentPathname ===
-                                `${import.meta.env.PUBLIC_URL}/partner` ||
-                            currentPathname ===
-                                `${import.meta.env.PUBLIC_URL}/partner/`
+                            currentPathname === '/partner' ||
+                            currentPathname === '/partner/'
                         }
                     >
                         <Text en='Partners' de='Partner' />
@@ -171,7 +157,7 @@ const Navigation: Component<Props> = ({ currentPathname }) => {
                 <Link linkUrl='https://www.instagram.com/happa_restaurant'>
                     <Button size={ButtonSize.Small}>
                         <Image
-                            image={{ src: `${import.meta.env.PUBLIC_URL}/insta.svg`, srcSet: '' }}
+                            image={{ src: '/insta.svg', srcSet: '' }}
                             width={18}
                         />
                     </Button>
@@ -180,7 +166,7 @@ const Navigation: Component<Props> = ({ currentPathname }) => {
                 <Link linkUrl='https://www.facebook.com/happaberlin'>
                     <Button size={ButtonSize.Small}>
                         <Image
-                            image={{ src: `${import.meta.env.PUBLIC_URL}/facebook.svg`, srcSet: '' }}
+                            image={{ src: '/facebook.svg', srcSet: '' }}
                             width={18}
                         />
                     </Button>

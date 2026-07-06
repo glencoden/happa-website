@@ -7,7 +7,7 @@ type Props = {
 const Link: ParentComponent<Props> = ({ children, linkUrl }) => {
     if (linkUrl.startsWith('/')) {
         return (
-            <a href={`${import.meta.env.PUBLIC_URL}${linkUrl}`}>
+            <a href={linkUrl}>
                 {children}
             </a>
         )

@@ -13,47 +13,41 @@ const Footer: Component<Props> = ({ currentPathname }) => {
     return (
         <footer class={styles.footer}>
             <Image
-                image={{ src: `${import.meta.env.PUBLIC_URL}/smiley.svg`, srcSet: '' }}
+                image={{ src: '/smiley.svg', srcSet: '' }}
                 className={styles.smiley}
             />
 
             <div class={styles.footerNavigation}>
-                <a href={`${import.meta.env.PUBLIC_URL}/press`}>
+                <a href='/press'>
                     <Button
                         size={ButtonSize.Regular}
                         active={
-                            currentPathname ===
-                                `${import.meta.env.PUBLIC_URL}/press` ||
-                            currentPathname ===
-                                `${import.meta.env.PUBLIC_URL}/press/`
+                            currentPathname === '/press' ||
+                            currentPathname === '/press/'
                         }
                     >
                         <Text en='Press' de='Presse' />
                     </Button>
                 </a>
 
-                <a href={`${import.meta.env.PUBLIC_URL}/imprint`}>
+                <a href='/imprint'>
                     <Button
                         size={ButtonSize.Regular}
                         active={
-                            currentPathname ===
-                                `${import.meta.env.PUBLIC_URL}/imprint` ||
-                            currentPathname ===
-                                `${import.meta.env.PUBLIC_URL}/imprint/`
+                            currentPathname === '/imprint' ||
+                            currentPathname === '/imprint/'
                         }
                     >
                         <Text en='Imprint' de='Impressum' />
                     </Button>
                 </a>
 
-                <a href={`${import.meta.env.PUBLIC_URL}/data`}>
+                <a href='/data'>
                     <Button
                         size={ButtonSize.Regular}
                         active={
-                            currentPathname ===
-                                `${import.meta.env.PUBLIC_URL}/data` ||
-                            currentPathname ===
-                                `${import.meta.env.PUBLIC_URL}/data/`
+                            currentPathname === '/data' ||
+                            currentPathname === '/data/'
                         }
                     >
                         <Text en='Data&nbsp;protection' de='Datenschutz' />
