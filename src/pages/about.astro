@@ -1,8 +1,24 @@
 ---
 import Layout from '../layouts/Layout.astro'
 import About from '../features/About/About'
+import { requestService } from '../services/requestService'
+import { assertData } from '../services/assertData'
+import { bakeArticle, bakeCarousel } from '../services/bakeService'
+
+const banner = await bakeArticle(assertData(await requestService.getAboutBannerData(), 'aboutBanner'))
+const aboutNina = await bakeArticle(assertData(await requestService.getAboutNinaData(), 'aboutNina'))
+const aboutSophia = await bakeArticle(assertData(await requestService.getAboutSophiaData(), 'aboutSophia'))
+const carousel = await bakeCarousel(assertData(await requestService.getAboutCarouselData(), 'aboutCarousel'))
+const happaForHome = await bakeArticle(assertData(await requestService.getAboutHappaForHomeData(), 'aboutHappaForHome'))
 ---
 
 <Layout>
-    <About client:idle />
+    <About
+        client:idle
+        banner={banner}
+        aboutNina={aboutNina}
+        aboutSophia={aboutSophia}
+        carousel={carousel}
+        happaForHome={happaForHome}
+    />
 </Layout>
