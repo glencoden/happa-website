@@ -1,8 +1,18 @@
 ---
 import Layout from '../layouts/Layout.astro'
 import Events from '../features/Events/Events'
+import { requestService } from '../services/requestService'
+import { assertData } from '../services/assertData'
+import { bakeArticle } from '../services/bakeService'
+import type { Article } from '../types/Article'
+
+const banner = await bakeArticle(assertData(await requestService.getEventsBannerData(), 'eventsBanner'))
+const eventsPublicData = assertData(await requestService.getEventsPublicData(), 'eventsPublic')
+    .filter((event): event is Article => event !== null)
+const eventsPublic = await Promise.all(eventsPublicData.map(bakeArticle))
+const eventsPrivate = await bakeArticle(assertData(await requestService.getEventsPrivateData(), 'eventsPrivate'))
 ---
 
 <Layout>
-    <Events client:idle />
+    <Events client:idle banner={banner} eventsPublic={eventsPublic} eventsPrivate={eventsPrivate} />
 </Layout>

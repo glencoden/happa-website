@@ -1,67 +1,49 @@
-import { createSignal, For, onMount, Show } from 'solid-js'
+import { For, Show } from 'solid-js'
 import type { Component } from 'solid-js'
 import ArticleBanner from '../../components/ArticleBanner/ArticleBanner'
 import ArticleDefault from '../../components/ArticleDefault/ArticleDefault'
-import { requestService } from '../../services/requestService'
-import type { Article } from '../../types/Article'
+import type { BakedArticle } from '../../types/BakedArticle'
 
-const Events: Component = () => {
-    const [banner, setBanner] = createSignal<Article | null>(null)
-    const [eventsPublic, setEventsPublic] = createSignal<(Article | null)[] | null>(null)
-    const [eventsPrivate, setEventsPrivate] = createSignal<Article | null>(null)
+type Props = {
+    banner: BakedArticle
+    eventsPublic: BakedArticle[]
+    eventsPrivate: BakedArticle
+}
 
-    onMount(async () => {
-        try {
-            const banner = await requestService.getEventsBannerData()
-            setBanner(banner)
-
-            const eventsPublic = await requestService.getEventsPublicData()
-            setEventsPublic(eventsPublic)
-
-            const eventsPrivate = await requestService.getEventsPrivateData()
-            setEventsPrivate(eventsPrivate)
-        } catch (error) {
-            console.error(error)
-        }
-    })
-
+const Events: Component<Props> = (props) => {
     return (
         <>
-            <Show when={banner() !== null && banner()!.subtitle !== null}>
+            <Show when={props.banner.subtitle !== null}>
                 <ArticleBanner
-                    title={banner()!.title}
-                    subtitle={banner()!.subtitle!}
-                    content={banner()!.content}
-                    imageUrl={banner()!.imageUrl}
+                    title={props.banner.title}
+                    subtitle={props.banner.subtitle!}
+                    content={props.banner.content}
+                    image={props.banner.image}
                 />
             </Show>
 
-            <Show when={eventsPublic() !== null}>
-                <For each={eventsPublic()!}>
-                    {(event, index) => (
-                        <Show when={event !== null}>
-                            <ArticleDefault
-                                imageUrl={event!.imageUrl}
-                                title={event!.title}
-                                date={event!.date!}
-                                content={event!.content}
-                                linkText={event!.buttonText!}
-                                linkUrl={event!.buttonLink!}
-                                reverse={index() % 2 === 1}
-                            />
-                        </Show>
-                    )}
-                </For>
-            </Show>
+            <For each={props.eventsPublic}>
+                {(event, index) => (
+                    <ArticleDefault
+                        image={event.image}
+                        title={event.title}
+                        date={event.date!}
+                        content={event.content}
+                        linkText={event.buttonText!}
+                        linkUrl={event.buttonLink!}
+                        reverse={index() % 2 === 1}
+                    />
+                )}
+            </For>
 
-            <Show when={eventsPrivate() !== null && eventsPrivate()!.buttonText !== null && eventsPrivate()!.buttonLink !== null}>
+            <Show when={props.eventsPrivate.buttonText !== null && props.eventsPrivate.buttonLink !== null}>
                 <ArticleDefault
-                    imageUrl={eventsPrivate()!.imageUrl}
-                    title={eventsPrivate()!.title}
-                    content={eventsPrivate()!.content}
-                    linkText={eventsPrivate()!.buttonText!}
-                    linkUrl={eventsPrivate()!.buttonLink!}
-                    reverse={Array.isArray(eventsPublic()) && eventsPublic()!.length % 2 === 1}
+                    image={props.eventsPrivate.image}
+                    title={props.eventsPrivate.title}
+                    content={props.eventsPrivate.content}
+                    linkText={props.eventsPrivate.buttonText!}
+                    linkUrl={props.eventsPrivate.buttonLink!}
+                    reverse={props.eventsPublic.length % 2 === 1}
                 />
             </Show>
         </>
