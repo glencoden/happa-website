@@ -1,75 +1,53 @@
-import { createSignal, For, onMount, Show } from 'solid-js'
+import { For, Show } from 'solid-js'
 import type { Component } from 'solid-js'
 import ArticleBanner from '../../components/ArticleBanner/ArticleBanner'
 import Carousel from '../../components/Carousel/Carousel'
 import Image from '../../components/Image/Image'
 import Menu from '../../components/Menu/Menu'
-import { requestService } from '../../services/requestService'
-import type { Article } from '../../types/Article'
-import type { CarouselType } from '../../types/CarouselType'
+import type { BakedArticle } from '../../types/BakedArticle'
+import type { BakedCarousel } from '../../types/BakedCarousel'
 import type { MenuType } from '../../types/MenuType'
 import styles from '../About/About.module.css'
 
-const Dinner: Component = () => {
-    const [banner, setBanner] = createSignal<Article | null>(null)
-    const [carousel, setCarousel] = createSignal<CarouselType | null>(null)
-    const [dinnerEvents, setDinnerEvents] = createSignal<(MenuType | null)[] | null>(null)
+type Props = {
+    banner: BakedArticle
+    carousel: BakedCarousel
+    dinnerEvents: MenuType[]
+}
 
-    onMount(async () => {
-        try {
-            const banner = await requestService.getDinnerBannerData()
-            setBanner(banner)
-
-            const carousel = await requestService.getDinnerCarouselData()
-            setCarousel(carousel)
-
-            const dinnerEvents = await requestService.getDinnerEventsData()
-            setDinnerEvents(dinnerEvents)
-        } catch (error) {
-            console.error(error)
-        }
-    })
-
+const Dinner: Component<Props> = (props) => {
     return (
         <>
-            <Show when={banner() !== null && banner()!.subtitle !== null}>
+            <Show when={props.banner.subtitle !== null}>
                 <ArticleBanner
-                    title={banner()!.title}
-                    subtitle={banner()!.subtitle!}
-                    content={banner()!.content}
-                    imageUrl={banner()!.imageUrl}
+                    title={props.banner.title}
+                    subtitle={props.banner.subtitle!}
+                    content={props.banner.content}
+                    image={props.banner.image}
                 />
             </Show>
 
-            <Show when={carousel() !== null}>
-                <Carousel
-                    description={carousel()!.description}
-                >
-                    <For each={carousel()!.imageUrls}>
-                        {(imageUrl) => (
-                            <Image
-                                imageUrl={imageUrl}
-                                className={styles.aboutCarouselImage}
-                            />
-                        )}
-                    </For>
-                </Carousel>
-            </Show>
-
-            <Show when={dinnerEvents() !== null}>
-                <For each={dinnerEvents()!}>
-                    {(dinnerEvent) => (
-                        <Show when={dinnerEvent !== null}>
-                            <Menu
-                                title={dinnerEvent!.title}
-                                menu={dinnerEvent!.menu}
-                                buttonText={dinnerEvent!.buttonText}
-                                buttonLink={dinnerEvent!.buttonLink}
-                            />
-                        </Show>
+            <Carousel description={props.carousel.description}>
+                <For each={props.carousel.images}>
+                    {(image) => (
+                        <Image
+                            image={image}
+                            className={styles.aboutCarouselImage}
+                        />
                     )}
                 </For>
-            </Show>
+            </Carousel>
+
+            <For each={props.dinnerEvents}>
+                {(dinnerEvent) => (
+                    <Menu
+                        title={dinnerEvent.title}
+                        menu={dinnerEvent.menu}
+                        buttonText={dinnerEvent.buttonText}
+                        buttonLink={dinnerEvent.buttonLink}
+                    />
+                )}
+            </For>
         </>
     )
 }

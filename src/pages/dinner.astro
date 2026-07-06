@@ -1,8 +1,17 @@
 ---
 import Layout from '../layouts/Layout.astro'
 import Dinner from '../features/Dinner/Dinner'
+import { requestService } from '../services/requestService'
+import { assertData } from '../services/assertData'
+import { bakeArticle, bakeCarousel } from '../services/bakeService'
+import type { MenuType } from '../types/MenuType'
+
+const banner = await bakeArticle(assertData(await requestService.getDinnerBannerData(), 'dinnerBanner'))
+const carousel = await bakeCarousel(assertData(await requestService.getDinnerCarouselData(), 'dinnerCarousel'))
+const dinnerEvents = assertData(await requestService.getDinnerEventsData(), 'dinnerEvents')
+    .filter((event): event is MenuType => event !== null)
 ---
 
 <Layout>
-    <Dinner client:idle />
+    <Dinner client:idle banner={banner} carousel={carousel} dinnerEvents={dinnerEvents} />
 </Layout>
